@@ -65,8 +65,8 @@ const Header = () => {
       <Link href="/" className="z-[5000]">
         <Image
           src="/images/veralyssa-logo.png"
-          width={180}
-          height={90}
+          width={140}
+          height={80}
           alt="veralyssa logo"
         />
       </Link>

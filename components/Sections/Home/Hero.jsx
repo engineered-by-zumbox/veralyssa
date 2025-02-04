@@ -32,9 +32,9 @@ const Hero = () => {
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-7 bg-black/40 md:gap-8 text-white z-40 px-4">
         <h1 className="text-center">
           Building Quality Structures With{" "}
-          {/* <span className="inline-block min-w-[400px] text-primary">
+          <span className="inline-block min-w-[400px] text-primary">
             <CubeAnimation />
-          </span> */}
+          </span>
         </h1>
         <p className="max-w-[98%] md:max-w-[689px] mx-auto text-center">
           We help elite businesses and individuals create environments for
@@ -100,7 +100,11 @@ const CubeAnimation = () => {
     <div className="cube-container">
       <div ref={cubeRef} className="cube">
         {textParts.map((text, i) => (
-          <div key={i} className="face">
+          <div
+            key={i}
+            className="face"
+            style={{ backfaceVisibility: "hidden" }}
+          >
             {text}
           </div>
         ))}

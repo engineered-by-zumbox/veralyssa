@@ -68,7 +68,7 @@ const Footer = () => {
       <div className="lg:myFlex relative">
         <div className="max-lg:pb-16 lg:basis-1/2 pl-[3%] lg:pl-[5%] grid md:grid-cols-2 gap-16">
           <div>
-            <p className="font-semibold text-white">Contact</p>
+            <p className="font-bold text-white">Contact</p>
             <div className="space-y-4 mt-5">
               <a
                 href="https://maps.app.goo.gl/zej4pSKN6tLqz9qC7"
@@ -105,7 +105,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="text-white">
-            <p className="font-semibold">Quick links</p>
+            <p className="font-bold">Quick links</p>
             <ul className="grid gap-3 mt-5">
               {FooterLinks.map((nav, i) => (
                 <li key={i}>
