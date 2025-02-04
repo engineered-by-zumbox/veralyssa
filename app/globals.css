@@ -2,8 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+@layer base {
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  h1 {
+    @apply text-3xl md:text-4xl font-bold md:leading-[43.57px];
+  }
+
+  p {
+    @apply text-base leading-[19.36px];
+  }
+}
+
+@layer utilities {
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .myContainer {
+    @apply px-[3%] lg:px-[5%] py-16 max-w-[1440px] mx-auto;
+  }
+
+  .nav-hover-btn {
+    @apply relative ms-10 after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-custom-ease hover:after:origin-bottom-left hover:after:scale-x-100 cursor-pointer;
+  }
+
+  .myFlex {
+    @apply flex items-center;
+  }
+
+  .input {
+    @apply rounded-lg border-[0.3px] border-myGray-200 focus:outline-0 focus:border-primary w-full p-3 text-base placeholder:text-myGray;
+  }
+
+  .cube-container {
+    perspective: 10000px;
+    display: inline-block; /* Make it inline with the text */
+    vertical-align: middle; /* Align it vertically with the text */
+    height: 80px; /* Adjust height to match the text */
+  }
+
+  .cube {
+    position: relative;
+    transform-style: preserve-3d;
+    display: inline-block; /* Make it inline with the text */
+  }
+
+  .face {
+    position: absolute;
+    width: 100%; /* Adjust width to fit the text */
+    height: 100%; /* Adjust height to fit the text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    border: none; /* Remove border */
+    opacity: 0.9;
+    transform-origin: center;
+    white-space: nowrap;
+  }
+
+  .face:nth-child(1) {
+    transform: rotateX(-90deg) translateZ(25px);
+  }
+
+  .face:nth-child(2) {
+    transform: rotateX(90deg) translateZ(25px);
+  }
+
+  .face:nth-child(3) {
+    transform: rotateX(180deg) translateZ(25px);
+  }
 }

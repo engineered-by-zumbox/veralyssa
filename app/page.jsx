@@ -1,9 +1,13 @@
-import React from "react";
+import FeaturedProjects from "@/components/Sections/Home/FeaturedProjects";
+import Hero from "@/components/Sections/Home/Hero";
+import Schedule from "@/components/Sections/Home/Schedule";
 
 const HomePage = () => {
   return (
     <main>
-      <h1>Welcome home</h1>
+      <Hero />
+      <FeaturedProjects />
+      <Schedule />
     </main>
   );
 };
