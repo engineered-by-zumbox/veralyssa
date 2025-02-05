@@ -41,6 +41,14 @@
     @apply rounded-lg border-[0.3px] border-myGray-200 focus:outline-0 focus:border-primary w-full p-3 text-base placeholder:text-myGray;
   }
 
+  .no-select {
+    user-select: none; /* Prevent text selection */
+    -webkit-user-select: none; /* For Safari */
+    -moz-user-select: none; /* For Firefox */
+    -ms-user-select: none; /* For IE/Edge */
+    pointer-events: none; /* Disable pointer interactions */
+  }
+
   .cube-container {
     perspective: 10000px;
     display: inline-block;

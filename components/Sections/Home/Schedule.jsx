@@ -8,7 +8,9 @@ const Schedule = () => {
       <div className="myContainer flex max-lg:flex-col">
         <div className="basis-1/2 flex justify-between flex-col min-h-full">
           <div>
-            <h1>SCHEDULE A MEETING WITH US</h1>
+            <h1>
+              SCHEDULE A MEETING <br className="md:hidden" /> WITH US
+            </h1>
             <p className="max-w-[605px] font-medium text-myGray mt-2">
               Let's discuss your vision for creating the perfect luxury space.
               Let’s Build Something Great Together.

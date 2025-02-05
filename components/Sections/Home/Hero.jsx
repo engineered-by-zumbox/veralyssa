@@ -40,15 +40,15 @@ const Hero = () => {
           We help elite businesses and individuals create environments for
           high-end living by providing end-to-end luxury living solutions.
         </p>
-        <div className="myFlex gap-6">
+        <div className="myFlex gap-4 md:gap-6">
           <Button
             cta="View our portfolio"
-            className="bg-primary-100 text-white"
+            className="bg-primary-100 text-white whitespace-nowrap"
             link="/contact"
           />
           <Button
             cta="Schedule a meeting"
-            className="!h-[46px] ring-1 ring-primary text-primary"
+            className="!h-[46px] ring-1 ring-primary text-primary whitespace-nowrap"
             link="/contact"
           />
         </div>
