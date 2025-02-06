@@ -55,3 +55,84 @@ export const HomeFAQs = [
       "Consider the size of your space and the style of your decor. Choose a frame that complements your existing furniture and color scheme. Our selection includes modern, classic, and eclectic designs to suit every taste.",
   },
 ];
+
+export const Portfolio = [
+  {
+    title: "Residential Architecture",
+    desc: "Discover our portfolio of luxury construction projects, where attention to detail meets uncompromising quality.",
+    projects: [
+      {
+        title: "A Cozy Two-Bedroom Condo with a Stunning View",
+        imageUrl: "/images/port1.jpeg",
+        link: "/portfolio",
+      },
+      {
+        title: "A Cozy Two-Bedroom Condo with a Stunning View",
+        imageUrl: "/images/port2.jpeg",
+        link: "/portfolio",
+      },
+      {
+        title: "A Cozy Two-Bedroom Condo with a Stunning View",
+        imageUrl: "/images/port3.jpeg",
+        link: "/portfolio",
+      },
+      {
+        title: "A Cozy Two-Bedroom Condo with a Stunning View",
+        imageUrl: "/images/port4.jpeg",
+        link: "/portfolio",
+      },
+    ],
+  },
+  {
+    title: "Commercial Architecture",
+    desc: "Discover our portfolio of luxury construction projects, where attention to detail meets uncompromising quality.",
+    projects: [
+      {
+        title: "A Cozy Two-Bedroom Condo with a Stunning View",
+        imageUrl: "/images/port1.jpeg",
+        link: "/portfolio",
+      },
+      {
+        title: "A Cozy Two-Bedroom Condo with a Stunning View",
+        imageUrl: "/images/port2.jpeg",
+        link: "/portfolio",
+      },
+      {
+        title: "A Cozy Two-Bedroom Condo with a Stunning View",
+        imageUrl: "/images/port3.jpeg",
+        link: "/portfolio",
+      },
+      {
+        title: "A Cozy Two-Bedroom Condo with a Stunning View",
+        imageUrl: "/images/port4.jpeg",
+        link: "/portfolio",
+      },
+    ],
+  },
+  {
+    title: "Landscape Design",
+    desc: "Discover our portfolio of luxury construction projects, where attention to detail meets uncompromising quality.",
+    projects: [
+      {
+        title: "A Cozy Two-Bedroom Condo with a Stunning View",
+        imageUrl: "/images/port1.jpeg",
+        link: "/portfolio",
+      },
+      {
+        title: "A Cozy Two-Bedroom Condo with a Stunning View",
+        imageUrl: "/images/port2.jpeg",
+        link: "/portfolio",
+      },
+      {
+        title: "A Cozy Two-Bedroom Condo with a Stunning View",
+        imageUrl: "/images/port3.jpeg",
+        link: "/portfolio",
+      },
+      {
+        title: "A Cozy Two-Bedroom Condo with a Stunning View",
+        imageUrl: "/images/port4.jpeg",
+        link: "/portfolio",
+      },
+    ],
+  },
+];
