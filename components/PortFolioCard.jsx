@@ -15,7 +15,7 @@ const PortFolioCard = ({ port }) => {
         {port.projects.map((project, i) => (
           <div
             key={i}
-            className="relative min-w-[300px] md:min-w-[356px] h-[540px] md:h-[641px] overflow-hidden rounded-3xl bg-black"
+            className="relative group transition-all duration-300 min-w-[300px] md:min-w-[356px] h-[540px] md:h-[641px] overflow-hidden rounded-3xl bg-black"
           >
             <img
               src={project.imageUrl}
@@ -26,10 +26,13 @@ const PortFolioCard = ({ port }) => {
                 <h2 className="text-[32px] mb-7 font-semibold leading-[38.73px] text-white">
                   {project.title}
                 </h2>
-                <div className="rounded-2xl w-full border border-white p-2 text-white">
+                <div className="rounded-2xl group-hover:bg-white w-full group-hover:!text-black border border-white p-2 text-white">
                   <Link href={project.link} className="myFlex justify-between">
                     MORE DETAILS
-                    <ChevronRight className="text-white" size={18} />
+                    <ChevronRight
+                      className="text-white group-hover:text-black"
+                      size={18}
+                    />
                   </Link>
                 </div>
               </div>

@@ -9,7 +9,7 @@ const FAQs = ({ faqs }) => {
   return (
     <section className="myContainer" id="faqs">
       <h1 className="text-center">FAQs</h1>
-      <p className="opacity-95 text-center mt-3 text-sm  md:text-lg w-[90%] md:w-[50%] mx-auto">
+      <p className="opacity-95 text-center mt-3 text-myGray md:text-lg w-[90%] md:w-[50%] mx-auto">
         Find answers to your questions and learn more about our desktop frame
         offerings.
       </p>
