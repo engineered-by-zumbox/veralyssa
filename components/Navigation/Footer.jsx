@@ -75,10 +75,10 @@ const Footer = () => {
               <a
                 href="https://maps.app.goo.gl/zej4pSKN6tLqz9qC7"
                 target="_blank"
-                className="flex gap-2 w-fit opacity-85 hover:opacity-100"
+                className="flex gap-2 w-fit"
               >
-                <MapPin size="30" color="#000000" fill="#ffffff" />
-                <p className="text-white">
+                <MapPin size="30" color="#000000" fill="#7b7670" />
+                <p className="text-myGray hover:text-white">
                   Plot 16B Omorinre Johnson Street,
                   <br /> Lekki Phase 1, Lagos, Nigeria
                   <br />
@@ -91,18 +91,20 @@ const Footer = () => {
               <a
                 href="mailto:enquiries@veralyssa.com"
                 target="_blank"
-                className="flex gap-2 w-fit opacity-85 hover:opacity-100"
+                className="flex gap-2 w-fit"
               >
-                <Mail size="24" color="#000000" fill="#ffffff" />
-                <p className="text-white">enquiries@veralyssa.com</p>
+                <Mail size="24" color="#000000" fill="#7b7670" />
+                <p className="text-myGray hover:text-white">
+                  enquiries@veralyssa.com
+                </p>
               </a>
               <a
                 href="tel:+012933866"
                 target="_blank"
-                className="flex gap-2 w-fit opacity-85 hover:opacity-100"
+                className="flex gap-2 w-fit"
               >
-                <Call size="24" color="#ffffff" variant="Bold" />
-                <p className="text-white">+01 293 3866</p>
+                <Call size="24" color="#7b7670" variant="Bold" />
+                <p className="text-myGray hover:text-white">+01 293 3866</p>
               </a>
             </div>
           </div>
@@ -110,7 +112,7 @@ const Footer = () => {
             <p className="font-bold">Quick links</p>
             <ul className="grid gap-3 mt-5">
               {FooterLinks.map((nav, i) => (
-                <li key={i} className="opacity-85 hover:opacity-100">
+                <li key={i} className="text-myGray hover:text-white">
                   <Link href={nav.url}>{nav.title}</Link>
                 </li>
               ))}
