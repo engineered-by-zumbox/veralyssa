@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const BlogCard1 = ({ news }) => {
   return (
-    <div className="p-5 max-w-[408px] cursor-pointer h-[336px] flex gap-6">
+    <div className="md:p-5 max-w-[408px] cursor-pointer h-[300px] md:h-[336px] flex gap-3 md:gap-6">
       <div className="basis-1/2 relative rounded-3xl overflow-hidden">
         <img
           src={news.imgUrl}
@@ -13,8 +13,8 @@ const BlogCard1 = ({ news }) => {
         />
         <div className="absolute inset-0 bg-black/40" />
       </div>
-      <div className="basis-1/2 flex flex-col justify-between">
-        <h2 className="font-semibold no-select text-lg md:text-xl md:leading-[24.2px]">
+      <div className="basis-1/2 flex flex-col justify-between max-md:py-2">
+        <h2 className="font-semibold no-select line-clamp-2 text-xl md:leading-[24.2px]">
           {news.title}
         </h2>
         <p className="text-primary no-select">{news.date}</p>

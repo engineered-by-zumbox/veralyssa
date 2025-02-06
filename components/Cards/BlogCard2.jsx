@@ -2,7 +2,7 @@ const BlogCard2 = ({ news }) => {
   return (
     <div className="w-full grid gap-4 cursor-pointer">
       <div className="h-[276px] relative rounded-lg overflow-hidden">
-        <img src={news.imgUrl} className="h-full object-cover" />
+        <img src={news.imgUrl} className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-black/40" />
       </div>
 

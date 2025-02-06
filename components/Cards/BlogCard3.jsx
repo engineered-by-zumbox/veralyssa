@@ -4,18 +4,20 @@ import React from "react";
 
 const BlogCard3 = ({ project }) => {
   return (
-    <div className="md:min-w-[409px] flex flex-col justify-between h-[737px] bg-black py-8 px-4 rounded-3xl">
+    <div className="max-md:max-w-[280px] md:min-w-[409px] flex flex-col justify-between h-[600px] md:h-[737px] bg-black py-8 px-4 rounded-3xl">
       <img
         src={project.imgUrl}
-        className="h-[296px] rounded-3xl object-cover w-full"
+        className="h-[250px] md:h-[296px] rounded-3xl object-cover w-full"
       />
       <div className="myFlex justify-between gap-1">
         <h2 className="font-semibold truncate text-white no-select text-lg md:text-xl md:leading-[24.2px]">
           {project.title}
         </h2>
-        <p className="text-primary no-select">{project.date}</p>
+        <p className="text-primary no-select whitespace-nowrap">
+          {project.date}
+        </p>
       </div>
-      <p className="text-white">{project.desc}</p>
+      <p className="text-white max-md:line-clamp-6">{project.desc}</p>
       <div className="rounded-2xl bg-white w-full text-black p-2">
         <Link
           href="/blog"

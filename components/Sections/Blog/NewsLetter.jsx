@@ -17,7 +17,7 @@ const NewsLetter = () => {
           luxury design and exclusive tips for creating your dream space. Join
           our community and let's build something extraordinary together!
         </p>
-        <div className="mt-4">
+        <div className="max-md:pt-10 md:mt-4">
           <Button
             cta="SUBSCRIBE NOW"
             link="#subscribe"
