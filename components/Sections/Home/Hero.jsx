@@ -31,8 +31,8 @@ const Hero = () => {
       {/* Content Overlay */}
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-7 bg-black/40 md:gap-8 text-white z-40 px-4">
         <h1 className="text-center">
-          Building Quality Structures With{" "}
-          <span className="inline-block min-w-[400px] text-primary">
+          Building Quality Structures With <br className="md:hidden" />
+          <span className="md:inline-block mx-auto md:min-w-[400px] text-primary">
             <CubeAnimation />
           </span>
         </h1>
