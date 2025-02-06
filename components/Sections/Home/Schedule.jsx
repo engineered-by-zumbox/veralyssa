@@ -23,7 +23,7 @@ const Schedule = () => {
                 Find quick answers to common questions about our process,
                 services, and consultations before booking your meeting.
               </p>
-              <Link href="/faqs" className="text-primary underline text-sm">
+              <Link href="#faqs" className="text-primary underline text-sm">
                 See all
               </Link>
             </div>

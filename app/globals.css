@@ -16,13 +16,20 @@
   p {
     @apply text-base leading-[19.36px];
   }
+  :root {
+    --radius: 0.5rem;
+  }
 }
 
 @layer utilities {
   .glassmorphism {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(3px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .bot-shadow {
+    box-shadow: 0 0 15px rgba(51, 51, 51, 0.129);
   }
 
   .myContainer {

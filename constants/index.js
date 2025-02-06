@@ -37,3 +37,21 @@ export const Projects = [
     link: "/project",
   },
 ];
+
+export const HomeFAQs = [
+  {
+    question: "Are the frames customizable?",
+    answer:
+      "A desktop frame is a stylish and functional way to display your favorite photos or artwork. It enhances your workspace while keeping your memories in view. Our frames come in various sizes and designs to fit any decor.",
+  },
+  {
+    question: "What is a desktop frame?",
+    answer:
+      "A desktop frame is a stylish and functional way to display your favorite photos or artwork. It enhances your workspace while keeping your memories in view. Our frames come in various sizes and designs to fit any decor.",
+  },
+  {
+    question: "How to choose a frame?",
+    answer:
+      "Consider the size of your space and the style of your decor. Choose a frame that complements your existing furniture and color scheme. Our selection includes modern, classic, and eclectic designs to suit every taste.",
+  },
+];

@@ -24,7 +24,7 @@ const FeaturedProjects = () => {
               alt="image"
               className="object-cover h-full"
             />
-            <div className="absolute no-select transition-all flex items-end duration-300 inset-0 opacity-0 w-full h-full group-hover:opacity-100 bg-black/40">
+            <div className="absolute no-select rounded-2xl transition-all flex items-end duration-300 inset-0 scale-90 group-hover:scale-100 opacity-0 w-full h-full group-hover:opacity-100 bg-black/30">
               <div className="text-white p-6 space-y-3">
                 <div>
                   <p className="opacity-70 mb-1 font-light">Project Name</p>

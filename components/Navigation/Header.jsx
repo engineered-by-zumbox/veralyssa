@@ -66,7 +66,7 @@ const Header = () => {
         <Image
           src="/images/veralyssa-logo.png"
           width={140}
-          height={80}
+          height={50}
           alt="veralyssa logo"
         />
       </Link>
