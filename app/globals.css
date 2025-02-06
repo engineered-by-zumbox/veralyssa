@@ -16,9 +16,6 @@
   p {
     @apply text-base leading-[19.36px];
   }
-  :root {
-    --radius: 0.5rem;
-  }
 }
 
 @layer utilities {

@@ -4,6 +4,8 @@ import { FooterLinks } from "@/constants";
 import { Location } from "iconsax-react";
 import { Call } from "iconsax-react";
 import { Send2 } from "iconsax-react";
+import { Mail } from "lucide-react";
+import { MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -75,7 +77,7 @@ const Footer = () => {
                 target="_blank"
                 className="flex gap-2 w-fit"
               >
-                <Location size="20" color="#ffffff" variant="Bold" />
+                <MapPin size="30" color="#000000" fill="#ffffff" />
                 <p className="text-white">
                   Plot 16B Omorinre Johnson Street,
                   <br /> Lekki Phase 1, Lagos, Nigeria
@@ -91,7 +93,7 @@ const Footer = () => {
                 target="_blank"
                 className="flex gap-2 w-fit"
               >
-                <Location size="20" color="#ffffff" variant="Bold" />
+                <Mail size="24" color="#000000" fill="#ffffff" />
                 <p className="text-white">enquiries@veralyssa.com</p>
               </a>
               <a
@@ -99,7 +101,7 @@ const Footer = () => {
                 target="_blank"
                 className="flex gap-2 w-fit"
               >
-                <Call size="20" color="#ffffff" variant="Bold" />
+                <Call size="24" color="#ffffff" variant="Bold" />
                 <p className="text-white">+01 293 3866</p>
               </a>
             </div>

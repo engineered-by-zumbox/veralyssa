@@ -10,6 +10,7 @@ import clsx from "clsx";
 import { NavLinks } from "@/constants";
 import Button from "../Button";
 import { HambergerMenu } from "iconsax-react";
+import { cn } from "@/lib/utils";
 
 const Header = () => {
   const navContainerRef = useRef(null);
@@ -60,7 +61,10 @@ const Header = () => {
   return (
     <header
       ref={navContainerRef}
-      className="fixed z-[1000] top-0 left-0 right-0 px-[3%] lg:px-[5%] border-none transition-all duration-700 myFlex justify-between h-[80px] glassmorphism"
+      className={cn(
+        "fixed z-[1000] top-0 left-0 right-0 px-[3%] lg:px-[5%] border-none transition-all duration-700 myFlex justify-between h-[80px]",
+        pathName === "/" && "glassmorphism"
+      )}
     >
       <Link href="/" className="z-[5000]">
         <Image

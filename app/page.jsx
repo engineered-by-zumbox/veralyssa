@@ -1,4 +1,3 @@
-import ChatBot from "@/components/Navigation/ChatBot";
 import FAQs from "@/components/Sections/Home/FAQs";
 import FeaturedProjects from "@/components/Sections/Home/FeaturedProjects";
 import Hero from "@/components/Sections/Home/Hero";
@@ -12,7 +11,6 @@ const HomePage = () => {
       <FeaturedProjects />
       <Schedule />
       <FAQs faqs={HomeFAQs} />
-      <ChatBot />
     </main>
   );
 };

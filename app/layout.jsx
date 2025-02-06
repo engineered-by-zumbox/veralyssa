@@ -1,6 +1,7 @@
 import Header from "@/components/Navigation/Header";
 import "./globals.css";
 import Footer from "@/components/Navigation/Footer";
+import ChatBot from "@/components/Navigation/ChatBot";
 
 export const metadata = {
   title: "Create Next App",
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <Footer />
+        <ChatBot />
       </body>
     </html>
   );

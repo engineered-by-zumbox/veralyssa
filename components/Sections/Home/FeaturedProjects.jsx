@@ -7,7 +7,7 @@ const FeaturedProjects = () => {
   return (
     <section className="myContainer md:!py-24">
       <h1 className="text-center">FEATURED PROJECTS</h1>
-      <p className="text-center font-medium text-myGray mt-2">
+      <p className="text-center md:font-medium text-myGray mt-2">
         Discover our portfolio of luxury construction projects, where attention
         to detail meets uncompromising quality.
       </p>
@@ -41,7 +41,7 @@ const FeaturedProjects = () => {
                 <div className="pt-3">
                   <Button
                     cta="View project"
-                    className="bg-primary-100 hover:scale-105 transition-all duration-300 text-white w-full myFlex text-center"
+                    className="bg-primary-100 transition-all duration-300 text-white w-full myFlex text-center"
                     link={pr.link}
                   />
                 </div>
