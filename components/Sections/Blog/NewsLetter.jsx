@@ -1,9 +1,10 @@
 import Button from "@/components/Button";
-import Link from "next/link";
+import BlogCard3 from "@/components/Cards/BlogCard3";
+import { HighLight } from "@/constants";
 
 const NewsLetter = () => {
   return (
-    <section className="myContainer">
+    <section className="myContainer !pb-32">
       <div>
         <h4 className="text-lg md:text-2xl">
           SUBSCRIBE TO OUR <br />{" "}
@@ -23,6 +24,11 @@ const NewsLetter = () => {
             className="bg-primary text-white px-12"
           />
         </div>
+      </div>
+      <div className="mt-10 myFlex no-scrollbar overflow-x-scroll gap-3">
+        {HighLight.map((project, i) => (
+          <BlogCard3 key={i} project={project} />
+        ))}
       </div>
     </section>
   );

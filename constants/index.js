@@ -190,3 +190,30 @@ export const AllNews = [
     imgUrl: "/images/port4.jpeg",
   },
 ];
+
+export const HighLight = [
+  {
+    title: "A Three Bedroom Apartment",
+    desc: "Lorem ipsum dolor sit amet consectetur. Potenti commodo amet cursus amet tellus sem. Cursus sit ultrices leo pretium pellentesque felis phasellus. Eu purus tempus lectus diam cras. Eget venenatis venenatis tristique feugiat duis vestibulum pharetra vestibulum. Lectus aliquet egestas porttitor velit integer pulvinar. Dignissim vitae mauris mi turpis et. Nisl nam at tempor velit aliquet posuere. Diam tristique amet orci non. Libero nulla molestie volutpat netus.",
+    imgUrl: "/images/port4.jpeg",
+    date: "July 29",
+  },
+  {
+    title: "A Three Bedroom Apartment",
+    desc: "Lorem ipsum dolor sit amet consectetur. Potenti commodo amet cursus amet tellus sem. Cursus sit ultrices leo pretium pellentesque felis phasellus. Eu purus tempus lectus diam cras. Eget venenatis venenatis tristique feugiat duis vestibulum pharetra vestibulum. Lectus aliquet egestas porttitor velit integer pulvinar. Dignissim vitae mauris mi turpis et. Nisl nam at tempor velit aliquet posuere. Diam tristique amet orci non. Libero nulla molestie volutpat netus.",
+    imgUrl: "/images/port1.jpeg",
+    date: "July 29",
+  },
+  {
+    title: "A Three Bedroom Apartment",
+    desc: "Lorem ipsum dolor sit amet consectetur. Potenti commodo amet cursus amet tellus sem. Cursus sit ultrices leo pretium pellentesque felis phasellus. Eu purus tempus lectus diam cras. Eget venenatis venenatis tristique feugiat duis vestibulum pharetra vestibulum. Lectus aliquet egestas porttitor velit integer pulvinar. Dignissim vitae mauris mi turpis et. Nisl nam at tempor velit aliquet posuere. Diam tristique amet orci non. Libero nulla molestie volutpat netus.",
+    imgUrl: "/images/port2.jpeg",
+    date: "July 29",
+  },
+  {
+    title: "A Three Bedroom Apartment",
+    desc: "Lorem ipsum dolor sit amet consectetur. Potenti commodo amet cursus amet tellus sem. Cursus sit ultrices leo pretium pellentesque felis phasellus. Eu purus tempus lectus diam cras. Eget venenatis venenatis tristique feugiat duis vestibulum pharetra vestibulum. Lectus aliquet egestas porttitor velit integer pulvinar. Dignissim vitae mauris mi turpis et. Nisl nam at tempor velit aliquet posuere. Diam tristique amet orci non. Libero nulla molestie volutpat netus.",
+    imgUrl: "/images/port3.jpeg",
+    date: "July 29",
+  },
+];
