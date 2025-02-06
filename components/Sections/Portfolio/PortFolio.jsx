@@ -8,7 +8,7 @@ const PortFolioLists = () => {
       {Portfolio.map((port, i) => (
         <section
           key={i}
-          className={cn("myContainer", i === 0 && "max-md:!pt-0")}
+          className={cn("myContainer", i === 0 && "!pt-0")}
         >
           <PortFolioCard key={i} port={port} />
         </section>
