@@ -25,7 +25,7 @@ const NewsLetter = () => {
           />
         </div>
       </div>
-      <div className="mt-10 myFlex no-scrollbar overflow-x-scroll gap-3">
+      <div className="mt-16 md:mt-10 myFlex no-scrollbar overflow-x-scroll gap-3">
         {HighLight.map((project, i) => (
           <BlogCard3 key={i} project={project} />
         ))}
