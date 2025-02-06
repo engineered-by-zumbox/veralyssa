@@ -13,7 +13,7 @@ const Footer = () => {
   const handleSubmit = () => {};
   return (
     <footer className="bg-black">
-      <div className="myContainer">
+      <div id="subscribe" className="myContainer">
         <div className="flex lg:items-end max-lg:flex-col gap-7 justify-between pb-12 border-b-[0.3px] border-b-myGray-200">
           <div>
             <h4 className="text-lg md:text-2xl text-white">
@@ -120,9 +120,8 @@ const Footer = () => {
           </div>
         </div>
         <div className="lg:basis-1/2 relative h-[416px] rounded-tl-[370px] md:rounded-tl-full overflow-hidden">
-          <Image
+          <img
             src="/images/footer.jpeg"
-            alt="footer image"
             width={710}
             height={416}
             className="absolute inset-0 w-full h-full"

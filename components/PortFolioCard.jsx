@@ -1,16 +1,11 @@
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import SectionHeader from "./SectionHeader";
 
 const PortFolioCard = ({ port }) => {
   return (
     <>
-      <div className="lg:max-w-[515px]">
-        <h1 className="max-md:max-w-[90%]">{port.title}</h1>
-        <p className="text-myGray pt-2 max-w-[90%] md:max-w-[60%] lg:max-w-[90%]">
-          {port.desc}
-        </p>
-      </div>
+      <SectionHeader title={port.title} desc={port.desc} />
       <div className="myFlex no-scrollbar overflow-y-scroll gap-4 mt-10">
         {port.projects.map((project, i) => (
           <div

@@ -1,7 +1,5 @@
 import Button from "@/components/Button";
 import { Projects } from "@/constants";
-import Image from "next/image";
-import React from "react";
 
 const FeaturedProjects = () => {
   return (
@@ -17,11 +15,10 @@ const FeaturedProjects = () => {
             key={i}
             className="relative group cursor-pointer h-[469px] rounded-2xl overflow-hidden"
           >
-            <Image
+            <img
               src={pr.imageUrl}
               width={500}
               height={500}
-              alt="image"
               className="object-cover h-full"
             />
             <div className="absolute no-select rounded-2xl transition-all flex items-end duration-300 inset-0 scale-90 group-hover:scale-100 opacity-0 w-full h-full group-hover:opacity-100 bg-black/30">

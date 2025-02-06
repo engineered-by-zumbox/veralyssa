@@ -136,3 +136,57 @@ export const Portfolio = [
     ],
   },
 ];
+
+export const LatestNews = [
+  {
+    title: "A Studio Apartment",
+    desc: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer",
+    imgUrl: "/images/port4.jpeg",
+    date: "October 10",
+  },
+  {
+    title: "A Studio Apartment",
+    desc: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer",
+    imgUrl: "/images/port4.jpeg",
+    date: "October 10",
+  },
+  {
+    title: "A Studio Apartment",
+    desc: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer",
+    imgUrl: "/images/port4.jpeg",
+    date: "October 10",
+  },
+];
+
+export const AllNews = [
+  {
+    title: "Lorem ipsum dolor sit amet consectetur. Imperdiet morbi morbi ",
+    desc: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer",
+    imgUrl: "/images/port4.jpeg",
+  },
+  {
+    title: "Lorem ipsum dolor sit amet consectetur. Imperdiet morbi morbi ",
+    desc: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer",
+    imgUrl: "/images/port4.jpeg",
+  },
+  {
+    title: "Lorem ipsum dolor sit amet consectetur. Imperdiet morbi morbi ",
+    desc: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer",
+    imgUrl: "/images/port4.jpeg",
+  },
+  {
+    title: "Lorem ipsum dolor sit amet consectetur. Imperdiet morbi morbi ",
+    desc: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer",
+    imgUrl: "/images/port4.jpeg",
+  },
+  {
+    title: "Lorem ipsum dolor sit amet consectetur. Imperdiet morbi morbi ",
+    desc: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer",
+    imgUrl: "/images/port4.jpeg",
+  },
+  {
+    title: "Lorem ipsum dolor sit amet consectetur. Imperdiet morbi morbi ",
+    desc: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer",
+    imgUrl: "/images/port4.jpeg",
+  },
+];
