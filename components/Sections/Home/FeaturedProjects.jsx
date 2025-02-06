@@ -11,7 +11,7 @@ const FeaturedProjects = () => {
         Discover our portfolio of luxury construction projects, where attention
         to detail meets uncompromising quality.
       </p>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-20">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 md:mt-20">
         {Projects.map((pr, i) => (
           <div
             key={i}

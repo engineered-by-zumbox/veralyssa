@@ -63,14 +63,14 @@ const Header = () => {
       ref={navContainerRef}
       className={cn(
         "fixed z-[1000] top-0 left-0 right-0 px-[3%] lg:px-[5%] border-none transition-all duration-700 myFlex justify-between h-[80px]",
-        pathName === "/" && "glassmorphism"
+        pathName === "/" ? "glassmorphism" : "bg-white"
       )}
     >
       <Link href="/" className="z-[5000]">
         <Image
           src="/images/veralyssa-logo.png"
           width={140}
-          height={50}
+          height={40}
           alt="veralyssa logo"
         />
       </Link>

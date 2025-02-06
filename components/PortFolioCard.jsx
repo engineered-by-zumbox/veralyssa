@@ -4,18 +4,18 @@ import React from "react";
 
 const PortFolioCard = ({ port }) => {
   return (
-    <section className="myContainer">
+    <>
       <div className="lg:max-w-[515px]">
-        <h1>{port.title}</h1>
-        <p className="text-myGray pt-2 md:max-w-[60%] lg:max-w-[90%]">
+        <h1 className="max-md:max-w-[90%]">{port.title}</h1>
+        <p className="text-myGray pt-2 max-w-[90%] md:max-w-[60%] lg:max-w-[90%]">
           {port.desc}
         </p>
       </div>
-      <div className="myFlex no-scrollbar overflow-y-scroll gap-4 mt-20">
+      <div className="myFlex no-scrollbar overflow-y-scroll gap-4 mt-10">
         {port.projects.map((project, i) => (
           <div
             key={i}
-            className="relative min-w-[356px] h-[641px] overflow-hidden rounded-3xl bg-black"
+            className="relative min-w-[300px] md:min-w-[356px] h-[540px] md:h-[641px] overflow-hidden rounded-3xl bg-black"
           >
             <img
               src={project.imageUrl}
@@ -23,7 +23,7 @@ const PortFolioCard = ({ port }) => {
             />
             <div className="absolute bg-black/20 inset-0 z-50 px-4 pb-6 flex items-end">
               <div>
-                <h2 className="text-[32px] mb-7 font-semibold leadig-[38.73px] text-white">
+                <h2 className="text-[32px] mb-7 font-semibold leading-[38.73px] text-white">
                   {project.title}
                 </h2>
                 <div className="rounded-2xl w-full border border-white p-2 text-white">
@@ -37,7 +37,7 @@ const PortFolioCard = ({ port }) => {
           </div>
         ))}
       </div>
-    </section>
+    </>
   );
 };
 

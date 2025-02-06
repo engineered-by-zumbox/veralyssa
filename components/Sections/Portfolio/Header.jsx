@@ -6,8 +6,8 @@ const Header = () => {
   return (
     <section className="myContainer lg:myFlex lg:justify-between">
       <div className="lg:max-w-[408px]">
-        <h1 className="!font-medium">FEATURED PROJECTS</h1>
-        <p className="text-myGray pt-2 md:max-w-[60%] lg:max-w-[90%]">
+        <h1 className="md:!font-medium">FEATURED PROJECTS</h1>
+        <p className="text-myGray pt-2 max-w-[90%] md:max-w-[60%] lg:max-w-[90%]">
           Discover our portfolio of luxury construction projects, where
           attention to detail meets uncompromising quality.
         </p>
