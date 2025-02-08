@@ -76,9 +76,10 @@ const HeroNew = () => {
       {/* Content */}
       <div className="relative z-10 flex flex-col gap-10 h-full items-center justify-center">
         <h1 className="text-center text-white lg:!text-6xl">
-          Building Quality Structures with <br />
+          Building Quality <br className="md:hidden" /> Structures with{" "}
+          <br className="max-md:hidden" />
           <span
-            className={`${playFair.className} mt-3 inline-block min-w-[200px] !text-primary`}
+            className={`${playFair.className} lg:mt-3 inline-block min-w-[200px] !text-primary`}
           >
             {displayText}
             <span className="animate-blink">|</span>
