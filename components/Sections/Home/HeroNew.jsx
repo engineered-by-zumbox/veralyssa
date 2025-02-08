@@ -89,16 +89,16 @@ const HeroNew = () => {
           We help elite businesses and individuals create environments for
           high-end living by providing end-to-end luxury living solutions.
         </p>
-        <div className="md:space-x-5 max-md:flex flex-col w-full px-[3%] gap-5">
+        <div className="md:space-x-5 max-md:flex flex-col max-md:w-full px-[3%] gap-5">
           <Link
             href="#"
-            className={`!w-full ${buttonVariants({ variant: "default" })}`}
+            className={`max-md:!w-full ${buttonVariants({ variant: "default" })}`}
           >
             View Our Projects
           </Link>
           <Link
             href="#"
-            className={`!w-full ${buttonVariants({ variant: "outline" })}`}
+            className={`max-md:!w-full ${buttonVariants({ variant: "outline" })}`}
           >
             Schedule a Meeting
           </Link>
