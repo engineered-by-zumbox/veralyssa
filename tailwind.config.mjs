@@ -15,7 +15,7 @@ export default {
           100: "#EDC759",
           200: "#F6F0E7",
           300: "#FFF8F1",
-          DEFAULT: "#DFBA4E",
+          DEFAULT: "#DFB146",
         },
         myGray: {
           100: "#959089",

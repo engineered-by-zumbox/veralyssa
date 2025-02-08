@@ -14,7 +14,7 @@
   }
 
   p {
-    @apply text-base leading-[19.36px];
+    @apply text-base leading-[25px];
   }
 }
 
