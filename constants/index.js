@@ -13,27 +13,27 @@ export const FooterLinks = [
 
 export const Projects = [
   {
-    imageUrl: "/images/pr1.jpeg",
-    name: "Horizon Towers",
+    imageUrl: "/images/vera-hero1.jpg",
+    name: "Modern Living Space",
     category: "Residential",
     description:
-      "A modern sanctuary blending minimalism with nature, featuring open spaces, floor-to-ceiling glass, and seamless indoor-outdoor living.",
+      "Contemporary design with premium finishes and smart home integration",
     link: "/project",
   },
   {
-    imageUrl: "/images/pr2.jpeg",
-    name: "Horizon Towers",
-    category: "Residential",
+    imageUrl: "/images/project2.jpg",
+    name: "Luxury Kitchen",
+    category: "Luxury Interiors",
     description:
-      "A modern sanctuary blending minimalism with nature, featuring open spaces, floor-to-ceiling glass, and seamless indoor-outdoor living.",
+      "State-of-the-art kitchen with custom cabinetry and high-end appliances",
     link: "/project",
   },
   {
-    imageUrl: "/images/pr3.jpeg",
-    name: "Horizon Towers",
-    category: "Residential",
+    imageUrl: "/images/project1.jpg",
+    name: "Premium Bathroom",
+    category: "Luxury Interiors",
     description:
-      "A modern sanctuary blending minimalism with nature, featuring open spaces, floor-to-ceiling glass, and seamless indoor-outdoor living.",
+      "Spa-inspired bathroom with marble finishes and modern fixtures",
     link: "/project",
   },
 ];

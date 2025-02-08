@@ -55,7 +55,7 @@
   }
 
   .input {
-    @apply rounded-lg border-[0.3px] border-myGray-200 focus:outline-0 focus:border-primary w-full p-3 text-base placeholder:text-myGray;
+    @apply rounded-lg border-[0.3px] border-gray-200 focus:outline-0 focus:border-primary w-full p-3 text-base placeholder:text-myGray placeholder:text-sm;
   }
 
   .no-select {

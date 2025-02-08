@@ -4,12 +4,12 @@ import { Projects } from "@/constants";
 const FeaturedProjects = () => {
   return (
     <section className="myContainer md:!py-24">
-      <h1 className="text-center">FEATURED PROJECTS</h1>
-      <p className="text-center md:font-medium text-myGray mt-2">
+      <h1 className="text-center">Featured Projects</h1>
+      <p className="text-center text-myGray mt-2">
         Discover our portfolio of luxury construction projects, where attention
-        to detail meets uncompromising quality.
+        to detail meets <br className="max-md:hidden" /> uncompromising quality.
       </p>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 md:mt-20">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 md:mt-16">
         {Projects.map((pr, i) => (
           <div
             key={i}

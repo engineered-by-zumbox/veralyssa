@@ -1,7 +1,6 @@
 "use client";
 import { playFair } from "@/app/layout";
-import { buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
+import Button from "@/components/Button";
 import React, { useState, useEffect } from "react";
 
 const HeroNew = () => {
@@ -90,18 +89,16 @@ const HeroNew = () => {
           high-end living by providing end-to-end luxury living solutions.
         </p>
         <div className="md:space-x-5 max-md:flex flex-col max-md:w-full px-[3%] gap-5">
-          <Link
-            href="#"
-            className={`max-md:!w-full ${buttonVariants({ variant: "default" })}`}
-          >
-            View Our Projects
-          </Link>
-          <Link
-            href="#"
-            className={`max-md:!w-full ${buttonVariants({ variant: "outline" })}`}
-          >
-            Schedule a Meeting
-          </Link>
+          <Button
+            cta="View Our Projects"
+            className="bg-primary px-7 text-white"
+            link="/projects"
+          />
+          <Button
+            cta="Schedule a Meeting"
+            className="border border-primary px-7 bg-white text-primary"
+            link="/contact"
+          />
         </div>
       </div>
     </div>
