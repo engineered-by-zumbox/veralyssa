@@ -1,11 +1,94 @@
+"use client";
 import Button from "@/components/Button";
 import { Projects } from "@/constants";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
 
 const FeaturedProjects = () => {
+  const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  const textRef = useRef(null);
+  const projectsRef = useRef([]);
+
+  useEffect(() => {
+    // Initial animation timeline
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 80%",
+        end: "bottom 20%",
+        toggleActions: "play none none reverse"
+      }
+    });
+
+    // Animate heading and text
+    tl.fromTo(headingRef.current,
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+    )
+    .fromTo(textRef.current,
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+      "-=0.6"
+    );
+
+    // Staggered animation for project cards
+    tl.fromTo(projectsRef.current,
+      { 
+        y: 100,
+        opacity: 0,
+        scale: 0.95
+      },
+      {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out"
+      },
+      "-=0.4"
+    );
+
+    // Hover animations for each project
+    projectsRef.current.forEach((project) => {
+      const overlay = project.querySelector('.project-overlay');
+      const content = project.querySelector('.project-content');
+
+      // Create hover animation timeline
+      const hoverTl = gsap.timeline({ paused: true });
+      hoverTl
+        .to(overlay, {
+          opacity: 1,
+          scale: 1,
+          duration: 0.3,
+          ease: "power2.out"
+        })
+        .fromTo(content.children,
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.3, stagger: 0.05 },
+          "-=0.2"
+        );
+
+      // Add hover event listeners
+      project.addEventListener('mouseenter', () => hoverTl.play());
+      project.addEventListener('mouseleave', () => hoverTl.reverse());
+    });
+
+    // Cleanup
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
+
   return (
-    <section className="myContainer md:!py-24">
-      <h1 className="text-center">Featured Projects</h1>
-      <p className="text-center text-myGray mt-2">
+    <section ref={sectionRef} className="myContainer md:!py-24">
+      <h1 ref={headingRef} className="text-center">Featured Projects</h1>
+      <p ref={textRef} className="text-center text-myGray mt-2">
         Discover our portfolio of luxury construction projects, where attention
         to detail meets <br className="max-md:hidden" /> uncompromising quality.
       </p>
@@ -13,16 +96,18 @@ const FeaturedProjects = () => {
         {Projects.map((pr, i) => (
           <div
             key={i}
-            className="relative group cursor-pointer h-[469px] rounded-2xl overflow-hidden"
+            ref={el => projectsRef.current[i] = el}
+            className="relative cursor-pointer h-[469px] rounded-2xl overflow-hidden"
           >
             <img
               src={pr.imageUrl}
               width={500}
               height={500}
-              className="object-cover h-full"
+              className="object-cover h-full w-full"
+              alt={pr.name}
             />
-            <div className="absolute no-select rounded-2xl transition-all flex items-end duration-300 inset-0 scale-90 group-hover:scale-100 opacity-0 w-full h-full group-hover:opacity-100 bg-black/30">
-              <div className="text-white p-6 space-y-3">
+            <div className="project-overlay absolute rounded-2xl transition-all flex items-end duration-300 inset-0 opacity-0 w-full h-full bg-black/30">
+              <div className="project-content text-white p-6 space-y-3">
                 <div>
                   <p className="opacity-70 mb-1 font-light">Project Name</p>
                   <p className="text-2xl font-semibold">{pr.name}</p>

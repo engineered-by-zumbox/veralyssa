@@ -39,7 +39,7 @@ const ContactForm = () => {
           />
           <Button
             cta="Send message"
-            className="bg-primary-100 text-white w-full myFlex text-center"
+            className="bg-primary text-white w-full myFlex text-center"
             link="/"
           />
         </div>

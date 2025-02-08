@@ -1,13 +1,20 @@
 "use client";
 import { playFair } from "@/app/layout";
 import Button from "@/components/Button";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
 
 const HeroNew = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+
+  // Refs for GSAP animations
+  const headingRef = useRef(null);
+  const paragraphRef = useRef(null);
+  const buttonsRef = useRef(null);
+  const imageRefs = useRef([]);
 
   const images = ["/images/vera-hero1.jpg", "/images/vera-hero2.jpg"];
 
@@ -20,6 +27,68 @@ const HeroNew = () => {
   const deletingSpeed = 100;
   const wordPause = 2000;
 
+  // Initial animation on mount
+  useEffect(() => {
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+    // Animate the first image in
+    tl.fromTo(
+      imageRefs.current[currentImageIndex],
+      { scale: 1.1, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 1.5 }
+    );
+
+    // Animate the overlay
+    tl.fromTo(
+      ".overlay",
+      { opacity: 0 },
+      { opacity: 1, duration: 1 },
+      "-=1"
+    );
+
+    // Animate the heading
+    tl.fromTo(
+      headingRef.current,
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1 },
+      "-=0.5"
+    );
+
+    // Animate the paragraph
+    tl.fromTo(
+      paragraphRef.current,
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8 },
+      "-=0.7"
+    );
+
+    // Animate the buttons
+    tl.fromTo(
+      buttonsRef.current.children,
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, stagger: 0.2 },
+      "-=0.5"
+    );
+  }, []);
+
+  // Handle image transitions
+  useEffect(() => {
+    if (currentImageIndex !== null) {
+      gsap.to(imageRefs.current[currentImageIndex], {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+      });
+
+      gsap.to(imageRefs.current[(currentImageIndex + 1) % 2], {
+        opacity: 0,
+        scale: 1.1,
+        duration: 1,
+      });
+    }
+  }, [currentImageIndex]);
+
+  // Typing effect logic
   useEffect(() => {
     let timer;
 
@@ -27,7 +96,6 @@ const HeroNew = () => {
       if (displayText === "") {
         setIsDeleting(false);
         setCurrentWordIndex((prev) => (prev + 1) % words.length);
-        // Change image when word is fully deleted
         setCurrentImageIndex((prev) => (prev + 1) % images.length);
       } else {
         timer = setTimeout(() => {
@@ -51,15 +119,14 @@ const HeroNew = () => {
   }, [displayText, isDeleting, currentWordIndex, currentImageIndex]);
 
   return (
-    <div className="relative h-screen w-full overflow-hidden mt-[80px]">
+    <div className="relative h-dvh w-full overflow-hidden md:mt-[80px]">
       {/* Image carousel */}
       <div className="absolute inset-0">
         {images.map((src, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              currentImageIndex === index ? "opacity-100" : "opacity-0"
-            }`}
+            ref={(el) => (imageRefs.current[index] = el)}
+            className="absolute inset-0"
           >
             <img
               src={src}
@@ -71,11 +138,11 @@ const HeroNew = () => {
       </div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/20" />
+      <div className="absolute inset-0 bg-black/20 overlay" />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col gap-10 h-full items-center justify-center">
-        <h1 className="text-center text-4xl text-white lg:!text-6xl">
+        <h1 ref={headingRef} className="text-center text-4xl text-white lg:!text-6xl">
           Building Quality <br className="md:hidden" /> Structures with{" "}
           <br className="max-md:hidden" />
           <span
@@ -85,11 +152,17 @@ const HeroNew = () => {
             <span className="animate-blink">|</span>
           </span>
         </h1>
-        <p className="max-w-[98%] md:max-w-[689px] md:text-lg mx-auto text-center text-white">
+        <p
+          ref={paragraphRef}
+          className="max-w-[98%] md:max-w-[689px] md:text-lg mx-auto text-center text-white"
+        >
           We help elite businesses and individuals create environments for
           high-end living by providing end-to-end luxury living solutions.
         </p>
-        <div className="md:space-x-5 max-md:flex flex-col max-md:w-full px-[3%] gap-5">
+        <div
+          ref={buttonsRef}
+          className="md:space-x-5 max-md:flex flex-col max-md:w-full px-[3%] gap-5"
+        >
           <Button
             cta="View Our Projects"
             className="bg-primary px-7 text-white"

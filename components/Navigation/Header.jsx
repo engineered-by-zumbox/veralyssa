@@ -20,6 +20,7 @@ const Header = () => {
   const [menuVisible, setMenuVisible] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isNavActive, setIsNavActive] = useState(false);
+  const [isBg, setBg] = useState(true);
 
   useEffect(() => {
     if (isNavActive) {
@@ -36,10 +37,13 @@ const Header = () => {
     const handleScroll = () => {
       if (currentScrollY === 0) {
         setIsNavVisible(true);
+        setBg(true);
       } else if (currentScrollY > lastScrollY) {
         setIsNavVisible(false);
+        setBg(false);
       } else if (currentScrollY < lastScrollY) {
         setIsNavVisible(true);
+        setBg(false);
       }
       setLastScrollY(currentScrollY);
     };
@@ -64,7 +68,8 @@ const Header = () => {
       ref={navContainerRef}
       className={cn(
         "fixed z-[1000] top-0 left-0 right-0 px-[3%] lg:px-[5%] border-none transition-all duration-700 myFlex justify-between h-[80px]",
-        pathName === "/" ? "glassmorphism" : "bg-white"
+        pathName === "/" ? "glassmorphism" : "bg-white",
+        isBg && "max-md:bg-white"
       )}
     >
       <Link href="/" className="z-[5000]">
