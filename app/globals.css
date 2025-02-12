@@ -38,12 +38,15 @@
     /* Firefox */
   }
 
-  .bot-shadow {
-    box-shadow: 0 0 15px rgba(51, 51, 51, 0.129);
+  .myShadow {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.074);
   }
-
   .myContainer {
     @apply px-[3%] lg:px-[5%] py-16 max-w-[1440px] mx-auto;
+  }
+
+  .adminContainer {
+    @apply py-10 pl-[3%] pr-[5%];
   }
 
   .nav-hover-btn {
@@ -64,44 +67,5 @@
     -moz-user-select: none; /* For Firefox */
     -ms-user-select: none; /* For IE/Edge */
     pointer-events: none; /* Disable pointer interactions */
-  }
-
-  .cube-container {
-    perspective: 10000px;
-    display: inline-block;
-    vertical-align: middle;
-    height: 80px;
-  }
-
-  .cube {
-    position: relative;
-    transform-style: preserve-3d;
-    display: inline-block; /* Make it inline with the text */
-  }
-
-  .face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: black;
-    border: none;
-    opacity: 0.9;
-    transform-origin: center;
-    white-space: nowrap;
-  }
-
-  .face:nth-child(1) {
-    transform: rotateX(-90deg) translateZ(25px);
-  }
-
-  .face:nth-child(2) {
-    transform: rotateX(90deg) translateZ(25px);
-  }
-
-  .face:nth-child(3) {
-    transform: rotateX(180deg) translateZ(25px);
   }
 }

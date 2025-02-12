@@ -11,6 +11,20 @@ export const FooterLinks = [
   { title: "Schedule a meeting with us", url: "/contact" },
 ];
 
+export const sideNavLinks = [
+  { title: "Dashboard", url: "/admin", icon: "/images/dashboard.svg" },
+  {
+    title: "Newsletters management",
+    url: "/admin/newsletter",
+    icon: "/images/newsletter.svg",
+  },
+  {
+    title: "Content management",
+    url: "/admin/content",
+    icon: "/images/content.svg",
+  },
+];
+
 export const Projects = [
   {
     imageUrl: "/images/vera-hero1.jpg",

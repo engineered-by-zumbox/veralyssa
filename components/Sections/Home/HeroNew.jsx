@@ -1,8 +1,9 @@
 "use client";
-import { playFair } from "@/app/layout";
+
 import Button from "@/components/Button";
 import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
+import { playFair } from "@/app/layout";
 
 const HeroNew = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -39,12 +40,7 @@ const HeroNew = () => {
     );
 
     // Animate the overlay
-    tl.fromTo(
-      ".overlay",
-      { opacity: 0 },
-      { opacity: 1, duration: 1 },
-      "-=1"
-    );
+    tl.fromTo(".overlay", { opacity: 0 }, { opacity: 1, duration: 1 }, "-=1");
 
     // Animate the heading
     tl.fromTo(
@@ -142,7 +138,10 @@ const HeroNew = () => {
 
       {/* Content */}
       <div className="relative z-10 flex flex-col gap-10 h-full items-center justify-center">
-        <h1 ref={headingRef} className="text-center text-4xl text-white lg:!text-6xl">
+        <h1
+          ref={headingRef}
+          className="text-center text-4xl text-white lg:!text-6xl"
+        >
           Building Quality <br className="md:hidden" /> Structures with{" "}
           <br className="max-md:hidden" />
           <span

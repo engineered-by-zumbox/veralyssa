@@ -1,6 +1,5 @@
 import FAQs from "@/components/Sections/Home/FAQs";
 import FeaturedProjects from "@/components/Sections/Home/FeaturedProjects";
-import Hero from "@/components/Sections/Home/Hero";
 import HeroNew from "@/components/Sections/Home/HeroNew";
 import Schedule from "@/components/Sections/Home/Schedule";
 import { HomeFAQs } from "@/constants";
@@ -13,7 +12,6 @@ export const metadata = {
 const HomePage = () => {
   return (
     <main>
-      {/* <Hero /> */}
       <HeroNew />
       <FeaturedProjects />
       <Schedule />

@@ -1,7 +1,4 @@
-import Header from "@/components/Navigation/Header";
 import "./globals.css";
-import Footer from "@/components/Navigation/Footer";
-import ChatBot from "@/components/Navigation/ChatBot";
 import { Inter, Playfair_Display } from "next/font/google";
 
 const inter = Inter({
@@ -19,12 +16,7 @@ export const playFair = Playfair_Display({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>
-        <Header />
-        {children}
-        <Footer />
-        {/* <ChatBot /> */}
-      </body>
+      <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   );
 }
