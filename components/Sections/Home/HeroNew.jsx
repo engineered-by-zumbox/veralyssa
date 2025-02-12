@@ -6,7 +6,6 @@ import gsap from "gsap";
 import { playFair } from "@/app/layout";
 
 const HeroNew = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -15,9 +14,6 @@ const HeroNew = () => {
   const headingRef = useRef(null);
   const paragraphRef = useRef(null);
   const buttonsRef = useRef(null);
-  const imageRefs = useRef([]);
-
-  const images = ["/images/vera-hero1.jpg", "/images/vera-hero2.jpg"];
 
   const words = [
     "Luxury and Style.",
@@ -28,21 +24,11 @@ const HeroNew = () => {
   const deletingSpeed = 100;
   const wordPause = 2000;
 
-  // Initial animation on mount
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-    // Animate the first image in
-    tl.fromTo(
-      imageRefs.current[currentImageIndex],
-      { scale: 1.1, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 1.5 }
-    );
-
-    // Animate the overlay
     tl.fromTo(".overlay", { opacity: 0 }, { opacity: 1, duration: 1 }, "-=1");
 
-    // Animate the heading
     tl.fromTo(
       headingRef.current,
       { y: 50, opacity: 0 },
@@ -50,7 +36,6 @@ const HeroNew = () => {
       "-=0.5"
     );
 
-    // Animate the paragraph
     tl.fromTo(
       paragraphRef.current,
       { y: 30, opacity: 0 },
@@ -58,7 +43,6 @@ const HeroNew = () => {
       "-=0.7"
     );
 
-    // Animate the buttons
     tl.fromTo(
       buttonsRef.current.children,
       { y: 20, opacity: 0 },
@@ -67,24 +51,6 @@ const HeroNew = () => {
     );
   }, []);
 
-  // Handle image transitions
-  useEffect(() => {
-    if (currentImageIndex !== null) {
-      gsap.to(imageRefs.current[currentImageIndex], {
-        opacity: 1,
-        scale: 1,
-        duration: 1,
-      });
-
-      gsap.to(imageRefs.current[(currentImageIndex + 1) % 2], {
-        opacity: 0,
-        scale: 1.1,
-        duration: 1,
-      });
-    }
-  }, [currentImageIndex]);
-
-  // Typing effect logic
   useEffect(() => {
     let timer;
 
@@ -92,7 +58,6 @@ const HeroNew = () => {
       if (displayText === "") {
         setIsDeleting(false);
         setCurrentWordIndex((prev) => (prev + 1) % words.length);
-        setCurrentImageIndex((prev) => (prev + 1) % images.length);
       } else {
         timer = setTimeout(() => {
           setDisplayText(displayText.slice(0, -1));
@@ -112,30 +77,19 @@ const HeroNew = () => {
     }
 
     return () => clearTimeout(timer);
-  }, [displayText, isDeleting, currentWordIndex, currentImageIndex]);
+  }, [displayText, isDeleting, currentWordIndex]);
 
   return (
     <div className="relative h-dvh w-full overflow-hidden md:mt-[80px]">
-      {/* Image carousel */}
       <div className="absolute inset-0">
-        {images.map((src, index) => (
-          <div
-            key={index}
-            ref={(el) => (imageRefs.current[index] = el)}
-            className="absolute inset-0"
-          >
-            <img
-              src={src}
-              alt={`Hero image ${index + 1}`}
-              className="h-full w-full object-cover"
-            />
-          </div>
-        ))}
+        <img
+          src="/images/hero.jpeg"
+          alt="hero imgae"
+          className="h-full w-full object-cover"
+        />
       </div>
-
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/20 overlay" />
-
+      <div className="absolute inset-0 bg-black/40 overlay" />
       {/* Content */}
       <div className="relative z-10 flex flex-col gap-10 h-full items-center justify-center">
         <h1

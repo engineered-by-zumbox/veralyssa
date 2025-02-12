@@ -1,13 +1,12 @@
 export const NavLinks = [
   { title: "Home", url: "/" },
-  { title: "Our portfolio", url: "/portfolio" },
-  { title: "Blogs & Newsletter", url: "/blog" },
+  { title: "Our projects", url: "/projects" },
+  { title: "Newsletters", url: "/newsletter" },
   { title: "About us", url: "/about" },
 ];
 export const FooterLinks = [
-  { title: "Our portfolio", url: "/portfolio" },
   { title: "Our Projects", url: "/projects" },
-  { title: "Blogs", url: "/blog" },
+  { title: "Newsletters", url: "/newsletter" },
   { title: "Schedule a meeting with us", url: "/contact" },
 ];
 
