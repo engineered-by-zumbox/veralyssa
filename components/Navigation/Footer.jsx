@@ -121,7 +121,7 @@ const Footer = () => {
         </div>
         <div className="lg:basis-1/2 relative h-[416px] rounded-tl-[370px] md:rounded-tl-full overflow-hidden">
           <img
-            src="/images/footer.jpeg"
+            src="/images/footer.webp"
             width={710}
             height={416}
             className="absolute inset-0 w-full h-full"
