@@ -80,7 +80,7 @@ const HeroNew = () => {
   }, [displayText, isDeleting, currentWordIndex]);
 
   return (
-    <div className="relative h-dvh w-full overflow-hidden md:mt-[80px]">
+    <div className="relative h-dvh w-full overflow-hidden">
       <img
         src="/images/hero.jpeg"
         alt="hero imgae"

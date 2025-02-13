@@ -9,9 +9,9 @@ import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { NavLinks } from "@/constants";
 import Button from "../Button";
-import { HambergerMenu } from "iconsax-react";
 import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
+import { AlignRight } from "lucide-react";
 
 const Header = () => {
   const navContainerRef = useRef(null);
@@ -21,7 +21,6 @@ const Header = () => {
   const [menuVisible, setMenuVisible] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isNavActive, setIsNavActive] = useState(false);
-  const [isBg, setBg] = useState(true);
 
   useEffect(() => {
     if (isNavActive) {
@@ -29,30 +28,32 @@ const Header = () => {
       setMenuVisible(true);
     } else {
       document.body.style.overflow = "auto";
-      const timer = setTimeout(() => setMenuVisible(false), 200);
+      const timer = setTimeout(() => setMenuVisible(false), 150);
       return () => clearTimeout(timer);
     }
   }, [isNavActive]);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (currentScrollY === 0) {
+      const scrollY = window.scrollY;
+
+      if (scrollY === 0) {
         setIsNavVisible(true);
-        setBg(true);
-      } else if (currentScrollY > lastScrollY) {
+        navContainerRef.current?.classList.remove("floating-nav");
+      } else if (scrollY > lastScrollY) {
         setIsNavVisible(false);
-        setBg(false);
-      } else if (currentScrollY < lastScrollY) {
+        navContainerRef.current?.classList.add("floating-nav");
+      } else if (scrollY < lastScrollY) {
         setIsNavVisible(true);
-        setBg(false);
+        navContainerRef.current?.classList.add("floating-nav");
       }
-      setLastScrollY(currentScrollY);
+
+      setLastScrollY(scrollY);
     };
 
-    if (Math.abs(currentScrollY - lastScrollY) > 10) {
-      handleScroll();
-    }
-  }, [currentScrollY]);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   useEffect(() => {
     if (navContainerRef.current) {
@@ -68,12 +69,10 @@ const Header = () => {
     <header
       ref={navContainerRef}
       className={cn(
-        "fixed z-[1000] top-0 left-0 right-0 px-[3%] lg:px-[5%] border-none transition-all duration-700 myFlex justify-between h-[80px]",
-        pathName === "/" ? "glassmorphism" : "bg-white",
-        isBg && "max-md:bg-white"
+        "fixed z-[1000] top-0 left-0 text-white right-0 px-[3%] lg:px-[5%] border-none transition-all duration-700 myFlex justify-between h-[80px]"
       )}
     >
-      <Link href="/">
+      <Link href="/" className="relative z-[1000]">
         <Image
           src="/images/vera-logo.png"
           width={200}
@@ -89,8 +88,8 @@ const Header = () => {
               <Link
                 href={url}
                 className={clsx(
-                  "nav-hover-btn font-medium",
-                  pathName === url && "text-primary font-bold"
+                  "nav-hover-btn font-medium lg:text-lg",
+                  pathName === url && "!text-primary font-bold"
                 )}
               >
                 {title}
@@ -108,7 +107,7 @@ const Header = () => {
         className="lg:hidden"
         onClick={() => setIsNavActive(!isNavActive)}
       >
-        <HambergerMenu size="32" color="#000000" />
+        <AlignRight size={32} />
       </button>
       {menuVisible && (
         <nav
@@ -129,8 +128,8 @@ const Header = () => {
                 key={title}
                 href={url}
                 className={clsx(
-                  "py-2 border-b border-b-black/25 text-center text-lg",
-                  pathName === url && "text-primary font-medium"
+                  "py-2 border-b border-b-black/25 text-black text-center text-xl",
+                  pathName === url && "!text-primary font-medium"
                 )}
               >
                 {title}
