@@ -69,7 +69,8 @@ const Header = () => {
     <header
       ref={navContainerRef}
       className={cn(
-        "fixed z-[1000] top-0 left-0 text-white right-0 px-[3%] lg:px-[5%] border-none transition-all duration-700 myFlex justify-between h-[80px]"
+        "fixed z-[1000] top-0 left-0 text-white right-0 px-[3%] lg:px-[5%] border-none transition-all duration-700 myFlex justify-between h-[80px]",
+        pathName !== "/" && "text-black"
       )}
     >
       <Link href="/" className="relative z-[1000]">
@@ -78,7 +79,7 @@ const Header = () => {
           width={200}
           height={40}
           alt="veralyssa logo"
-          className="max-md:-ml-6"
+          className="max-lg:-ml-6"
         />
       </Link>
       <nav className="max-lg:hidden">
@@ -126,6 +127,7 @@ const Header = () => {
             {NavLinks.map(({ title, url }, i) => (
               <Link
                 key={title}
+                onClick={() => setIsNavActive(false)}
                 href={url}
                 className={clsx(
                   "py-2 border-b border-b-black/25 text-black text-center text-xl",

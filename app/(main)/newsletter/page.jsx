@@ -5,8 +5,8 @@ import SeeAll from "@/components/Sections/Blog/SeeAll";
 const BlogPage = () => {
   return (
     <main className="min-h-dvh !pt-16 lg:!pt-20">
-      <div className="myContainer">
-        <div className="myFlex gap-3">
+      <div className="myContainer max-md:!pb-7">
+        <div className="flex md:items-center md:gap-3 max-md:flex-col">
           <p className="text-lg md:text-2xl">SUBSCRIBE TO OUR</p>
           <h3 className="font-semibold !text-4xl lg:!text-5xl">NEWSLETTER</h3>
         </div>
