@@ -1,12 +1,10 @@
 "use client";
 
 import { FooterLinks } from "@/constants";
-import { Location } from "iconsax-react";
 import { Call } from "iconsax-react";
 import { Send2 } from "iconsax-react";
 import { Mail } from "lucide-react";
 import { MapPin } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
