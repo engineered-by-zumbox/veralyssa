@@ -81,13 +81,11 @@ const HeroNew = () => {
 
   return (
     <div className="relative h-dvh w-full overflow-hidden md:mt-[80px]">
-      <div className="absolute inset-0">
-        <img
-          src="/images/hero.jpeg"
-          alt="hero imgae"
-          className="h-full w-full object-cover"
-        />
-      </div>
+      <img
+        src="/images/hero.jpeg"
+        alt="hero imgae"
+        className="h-full w-full object-cover absolute top-0 bottom-0 right-0 left-0"
+      />
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40 overlay" />
       {/* Content */}
@@ -123,7 +121,7 @@ const HeroNew = () => {
           />
           <Button
             cta="Schedule a Meeting"
-            className="border border-primary px-7 bg-white text-primary"
+            className="px-7 bg-white text-primary"
             link="/contact"
           />
         </div>

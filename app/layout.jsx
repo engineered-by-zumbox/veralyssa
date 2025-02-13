@@ -1,3 +1,4 @@
+import TawkToMessenger from "@/components/TawkToMessenger";
 import "./globals.css";
 import { Inter, Playfair_Display } from "next/font/google";
 
@@ -16,7 +17,10 @@ export const playFair = Playfair_Display({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={`${inter.className} antialiased`}>
+        {children}
+        <TawkToMessenger />
+      </body>
     </html>
   );
 }

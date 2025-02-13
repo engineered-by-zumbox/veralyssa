@@ -2,7 +2,6 @@ export const NavLinks = [
   { title: "Home", url: "/" },
   { title: "Our projects", url: "/projects" },
   { title: "Newsletters", url: "/newsletter" },
-  { title: "About us", url: "/about" },
 ];
 export const FooterLinks = [
   { title: "Our Projects", url: "/projects" },

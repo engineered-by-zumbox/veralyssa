@@ -11,6 +11,7 @@ import { NavLinks } from "@/constants";
 import Button from "../Button";
 import { HambergerMenu } from "iconsax-react";
 import { cn } from "@/lib/utils";
+import { X } from "lucide-react";
 
 const Header = () => {
   const navContainerRef = useRef(null);
@@ -72,7 +73,7 @@ const Header = () => {
         isBg && "max-md:bg-white"
       )}
     >
-      <Link href="/" className="z-[5000]">
+      <Link href="/">
         <Image
           src="/images/vera-logo.png"
           width={200}
@@ -104,11 +105,40 @@ const Header = () => {
         link="/contact"
       />
       <button
-        className="z-[5000] lg:hidden"
+        className="lg:hidden"
         onClick={() => setIsNavActive(!isNavActive)}
       >
         <HambergerMenu size="32" color="#000000" />
       </button>
+      {menuVisible && (
+        <nav
+          className={clsx(
+            "fixed top-0 z-[1000] h-dvh bottom-0 right-0 left-0 bg-white px-[3%]",
+            isNavActive ? "animate-slide-in" : "animate-slide-out"
+          )}
+        >
+          <div className="myFlex justify-between py-10 !pt-16">
+            <h2 className="text-2xl text-[#1e1e1e]">MENU</h2>
+            <button onClick={() => setIsNavActive(false)}>
+              <X size={28} color="#1e1e1e" strokeWidth={1.3} />
+            </button>
+          </div>
+          <div className="grid gap-12 mt-7">
+            {NavLinks.map(({ title, url }, i) => (
+              <Link
+                key={title}
+                href={url}
+                className={clsx(
+                  "py-2 border-b border-b-black/25 text-center text-lg",
+                  pathName === url && "text-primary font-medium"
+                )}
+              >
+                {title}
+              </Link>
+            ))}
+          </div>
+        </nav>
+      )}
     </header>
   );
 };
