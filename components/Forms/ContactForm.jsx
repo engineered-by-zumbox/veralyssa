@@ -29,7 +29,7 @@ Message: ${formData.message}`;
   };
 
   return (
-    <div className="md:max-w-[700px] max-md:py-7 md:min-w-max py-10 w-full lg:mx-auto h-full">
+    <div className="md:max-w-[700px] mx-auto max-md:py-7 md:min-w-max py-10 w-full lg:mx-auto h-full">
       <form className="min-w-full" onSubmit={handleSubmit}>
         <div className="grid gap-3 mt-5">
           <div className="grid grid-cols-2 gap-2">

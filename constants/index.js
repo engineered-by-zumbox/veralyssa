@@ -3,24 +3,11 @@ export const NavLinks = [
   { title: "Our projects", url: "/projects" },
   { title: "Newsletters", url: "/newsletter" },
 ];
+
 export const FooterLinks = [
   { title: "Our Projects", url: "/projects" },
   { title: "Newsletters", url: "/newsletter" },
   { title: "Schedule a meeting with us", url: "/contact" },
-];
-
-export const sideNavLinks = [
-  { title: "Dashboard", url: "/admin", icon: "/images/dashboard.svg" },
-  {
-    title: "Newsletters management",
-    url: "/admin/newsletter",
-    icon: "/images/newsletter.svg",
-  },
-  {
-    title: "Content management",
-    url: "/admin/content",
-    icon: "/images/content.svg",
-  },
 ];
 
 export const Projects = [
