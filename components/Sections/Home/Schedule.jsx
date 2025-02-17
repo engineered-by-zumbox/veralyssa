@@ -19,7 +19,7 @@ const Schedule = () => {
         trigger: sectionRef.current,
         start: "top 80%",
         end: "bottom 20%",
-        toggleActions: "play none none reverse"
+        // toggleActions: "play none none reverse"
       }
     });
 
@@ -59,12 +59,10 @@ const Schedule = () => {
       { 
         y: 50,
         opacity: 0,
-        scale: 0.98
       },
       { 
         y: 0,
         opacity: 1,
-        scale: 1,
         duration: 1,
         ease: "power2.out"
       },
