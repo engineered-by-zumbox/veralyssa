@@ -1,10 +1,10 @@
-import Header from "@/components/Sections/Portfolio/Header";
-import PortFolioLists from "@/components/Sections/Portfolio/PortFolio";
+import PortfolioCard from "@/components/PortFolioCard";
 
-const PortfolioPage = async () => {
+const SingleProjectPage = async ({ params }) => {
+  const { id } = await params;
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/projects`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/projects/${id}`,
       {
         next: { revalidate: 60 },
       }
@@ -18,9 +18,8 @@ const PortfolioPage = async () => {
     console.log("Fetched Projects:", data);
 
     return (
-      <main className="min-h-dvh !pt-16 lg:!pt-20">
-        <Header />
-        <PortFolioLists projects={data} />
+      <main className="min-h-dvh !pt-28 lg:!pt-32 myContainer">
+        <PortfolioCard port={data} type="2" />
       </main>
     );
   } catch (error) {
@@ -36,4 +35,4 @@ const PortfolioPage = async () => {
   }
 };
 
-export default PortfolioPage;
+export default SingleProjectPage;

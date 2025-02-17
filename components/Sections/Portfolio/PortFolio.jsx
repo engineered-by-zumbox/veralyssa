@@ -1,18 +1,15 @@
 import PortFolioCard from "@/components/PortFolioCard";
-import { Portfolio } from "@/constants";
 import { cn } from "@/lib/utils";
 
-const PortFolioLists = () => {
+const PortFolioLists = ({ projects }) => {
   return (
     <>
-      {Portfolio.map((port, i) => (
-        <section
-          key={i}
-          className={cn("myContainer", i === 0 && "!pt-0")}
-        >
-          <PortFolioCard key={i} port={port} />
-        </section>
-      ))}
+      {projects &&
+        projects?.map((port, i) => (
+          <section key={i} className={cn("myContainer", i === 0 && "!pt-0")}>
+            <PortFolioCard key={i} port={port} />
+          </section>
+        ))}
     </>
   );
 };

@@ -3,12 +3,40 @@
 import { FooterLinks } from "@/constants";
 import { Call } from "iconsax-react";
 import { Send2 } from "iconsax-react";
+import { Loader2 } from "lucide-react";
 import { Mail } from "lucide-react";
 import { MapPin } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import toast from "react-hot-toast";
 
 const Footer = () => {
-  const handleSubmit = () => {};
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/newsletter/subscribe`,
+        {
+          method: "POST",
+          body: JSON.stringify({ email }),
+        }
+      );
+      if (!response.ok) {
+        console.log(response);
+      }
+      setEmail("");
+      toast.success("Thanks for subscribing! Stay tuned for updates. 🚀");
+    } catch (error) {
+      console.log(error);
+      toast.error("An error occured. Try again!");
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <footer className="bg-black">
       <div id="subscribe" className="myContainer">
@@ -40,24 +68,26 @@ const Footer = () => {
                 <input
                   type="email"
                   id="email"
-                  name="email"
-                  // value={formData.email}
-                  // onChange={handleChange}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                   placeholder="Enter your email address"
                   className="w-full focus:outline-none placeholder:max-md:text-sm placeholder:text-black placeholder:font-medium"
                 />
                 <button
                   type="submit"
-                  // disabled={isLoading}
+                  disabled={loading}
                   className="bg-black p-2 rounded-xl myFlex justify-between"
                 >
-                  <Send2 size="24" color="#ffffff" variant="Bold" />
-                  {/* {isLoading ? (
-                  <Loader2 size="24" className="animate-spin" color="#ffffff" />
-                ) : (
-                  <Send2 size="24" color="#ffffff" variant="Bold" />
-                )} */}
+                  {loading ? (
+                    <Loader2
+                      size="24"
+                      className="animate-spin"
+                      color="#ffffff"
+                    />
+                  ) : (
+                    <Send2 size="24" color="#ffffff" variant="Bold" />
+                  )}
                 </button>
               </div>
               {/* {error && <p style={{ color: "red", fontSize: "14px" }}>{error}</p>} */}
@@ -118,8 +148,9 @@ const Footer = () => {
           </div>
         </div>
         <div className="lg:basis-1/2 relative h-[416px] rounded-tl-[370px] md:rounded-tl-full overflow-hidden">
-          <img
+          <Image
             src="/images/footer.webp"
+            alt="footer image"
             width={710}
             height={416}
             className="absolute inset-0 w-full h-full"

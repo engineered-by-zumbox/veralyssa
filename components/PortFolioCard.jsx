@@ -1,42 +1,58 @@
-import { ChevronRight } from "lucide-react";
-import Link from "next/link";
-import SectionHeader from "./SectionHeader";
+"use client";
 
-const PortFolioCard = ({ port }) => {
+import { useState } from "react";
+import SectionHeader from "./SectionHeader";
+import ImageViewer from "./ImageViewer";
+import { cn } from "@/lib/utils";
+
+const PortfolioCard = ({ port, type = "1" }) => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   return (
     <>
-      <SectionHeader title={port.title} desc={port.desc} />
-      <div className="myFlex no-scrollbar overflow-y-scroll gap-4 mt-10">
-        {port.projects.map((project, i) => (
+      <SectionHeader
+        title={port.name}
+        desc={port.description}
+        id={type === "1" ? port._id : ""}
+      />
+      <div
+        className={cn(
+          "mt-10",
+          type === "1" && "myFlex no-scrollbar overflow-y-scroll gap-4",
+          type === "2" && "grid md:grid-cols-2 gap-4"
+        )}
+      >
+        {port.images.map((project, i) => (
           <div
             key={i}
-            className="relative group transition-all duration-300 min-w-[300px] md:min-w-[356px] h-[540px] md:h-[641px] overflow-hidden rounded-3xl bg-black"
+            onClick={() => setSelectedImage(i)}
+            className="relative group transition-all duration-300 min-w-[300px] md:min-w-[356px] h-[540px] md:h-[641px] overflow-hidden rounded-3xl bg-black cursor-pointer"
           >
             <img
-              src={project.imageUrl}
-              className="absolute inset-0 object-cover h-full w-full"
+              src={project.url}
+              alt={project.caption}
+              className="absolute inset-0 object-cover h-full w-full group-hover:scale-105 transition-transform duration-300"
             />
             <div className="absolute bg-black/20 inset-0 z-50 px-4 pb-6 flex items-end">
               <div>
                 <h2 className="text-[32px] mb-7 font-semibold leading-[38.73px] text-white">
-                  {project.title}
+                  {project.caption}
                 </h2>
-                <div className="rounded-2xl group-hover:bg-white w-full group-hover:!text-black border border-white p-2 text-white">
-                  <Link href={project.link} className="myFlex justify-between">
-                    MORE DETAILS
-                    <ChevronRight
-                      className="text-white group-hover:text-black"
-                      size={18}
-                    />
-                  </Link>
-                </div>
               </div>
             </div>
           </div>
         ))}
       </div>
+
+      {selectedImage !== null && (
+        <ImageViewer
+          images={port.images}
+          initialIndex={selectedImage}
+          onClose={() => setSelectedImage(null)}
+        />
+      )}
     </>
   );
 };
 
-export default PortFolioCard;
+export default PortfolioCard;

@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter, Playfair_Display } from "next/font/google";
 import Header from "@/components/Navigation/Header";
 import Footer from "@/components/Navigation/Footer";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <Footer />
+        <Toaster />
         <TawkToMessenger />
       </body>
     </html>
