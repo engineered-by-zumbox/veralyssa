@@ -63,12 +63,12 @@ const SubscribeModal = () => {
       onClick={handleClose}
     >
       <div 
-        className="bg-[#FCF8ED] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex max-lg:flex-col lg:items-end gap-7 max-md:w-[95%] max-w-[1167px] p-3 mx-auto md:px-5 md:pt-10 md:pb-5 rounded-3xl animate-slideUp"
+        className="bg-[#FCF8ED] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex max-lg:flex-col lg:items-end gap-7 max-md:w-[95%] max-w-[1167px] p-3 mx-auto md:px-5 md:pt-10 md:pb-5 rounded-3xl animate-scaleUp"
         onClick={(e) => e.stopPropagation()}
       >
         <button 
           onClick={handleClose}
-          className="absolute top-4 right-4 p-2 rounded-full hover:bg-black/5 transition-colors duration-200"
+          className="absolute top-4 max-md:hidden right-4 p-2 rounded-full hover:bg-black/5 transition-colors duration-200"
         >
           <X size={24} />
         </button>
@@ -96,7 +96,7 @@ const SubscribeModal = () => {
               proin pretium integer.
             </p>
             <br />
-            <p className="font-medium">
+            <p className="font-semibold">
               Interested in more contents like this? Sign up for our newsletters
               today!
             </p>
