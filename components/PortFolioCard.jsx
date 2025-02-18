@@ -4,6 +4,7 @@ import { useState } from "react";
 import SectionHeader from "./SectionHeader";
 import ImageViewer from "./ImageViewer";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const PortfolioCard = ({ port, type = "1" }) => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -26,9 +27,11 @@ const PortfolioCard = ({ port, type = "1" }) => {
           <div
             key={i}
             onClick={() => setSelectedImage(i)}
-            className="relative group transition-all duration-300 min-w-[300px] md:min-w-[356px] h-[540px] md:h-[641px] overflow-hidden rounded-3xl bg-black cursor-pointer"
+            className="relative group transition-all duration-300 min-w-[300px] md:min-w-[356px] h-[540px] md:h-[641px] overflow-hidden rounded-3xl bg-gray-100 cursor-pointer"
           >
-            <img
+            <Image
+              width={500}
+              height={700}
               src={project.url}
               alt={project.caption}
               className="absolute inset-0 object-cover h-full w-full group-hover:scale-105 transition-transform duration-300"

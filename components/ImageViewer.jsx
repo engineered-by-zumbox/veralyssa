@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
+import Image from "next/image";
 
 const ImageViewer = ({ images, onClose, initialIndex = 0 }) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
@@ -47,10 +48,12 @@ const ImageViewer = ({ images, onClose, initialIndex = 0 }) => {
         </button>
 
         <div className="relative w-full h-full flex items-center justify-center">
-          <img
+          <Image
+            width={1000}
+            height={1000}
             src={images[currentIndex].url}
             alt={images[currentIndex].caption}
-            className={`max-h-[90vh] max-w-[90vw] object-contain transition-transform duration-300 ${
+            className={`max-h-[95vh] max-w-[95vw] object-contain transition-transform duration-300 ${
               isZoomed ? "scale-150" : "scale-100"
             }`}
           />
