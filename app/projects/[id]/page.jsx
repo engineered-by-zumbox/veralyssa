@@ -15,8 +15,6 @@ const SingleProjectPage = async ({ params }) => {
     }
 
     const data = await res.json();
-    console.log("Fetched Projects:", data);
-
     return (
       <main className="min-h-dvh !pt-28 lg:!pt-32 myContainer">
         <PortfolioCard port={data} type="2" />

@@ -35,6 +35,14 @@ export default {
             transform: "translateX(0)",
           },
         },
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        slideUp: {
+          "0%": { transform: "translate(-50%, 100%)", opacity: "0" },
+          "100%": { transform: "translate(-50%, -50%)", opacity: "1" },
+        },
         slideOut: {
           "0%": {
             transform: "translateX(0)",
@@ -65,6 +73,8 @@ export default {
         "slide-out": "slideOut 0.15s ease-in forwards",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        fadeIn: "fadeIn 0.3s ease-in-out",
+        slideUp: "slideUp 0.5s ease-out",
       },
     },
   },

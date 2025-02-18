@@ -15,7 +15,6 @@ const PortfolioPage = async () => {
     }
 
     const data = await res.json();
-    console.log("Fetched Projects:", data);
 
     return (
       <main className="min-h-dvh !pt-16 lg:!pt-20">

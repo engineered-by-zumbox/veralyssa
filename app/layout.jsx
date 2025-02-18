@@ -4,6 +4,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import Header from "@/components/Navigation/Header";
 import Footer from "@/components/Navigation/Footer";
 import { Toaster } from "react-hot-toast";
+import SubscribeModal from "@/components/SubscribeModal";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
         <Footer />
         <Toaster />
         <TawkToMessenger />
+        <SubscribeModal />
       </body>
     </html>
   );
