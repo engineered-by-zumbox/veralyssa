@@ -23,8 +23,7 @@ Phone: ${formData.phone}
 Message: ${formData.message}`;
 
     const encodedMessage = encodeURIComponent(message);
-    const phoneNumber = "2349136860915";
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    const whatsappURL = `https://wa.me/${process.env.NEXT_PUBLIC_PHONE_NUMBER}?text=${encodedMessage}`;
     window.open(whatsappURL, "_blank");
   };
 
