@@ -4,16 +4,23 @@ import { FooterLinks } from "@/constants";
 import { Call } from "iconsax-react";
 import { Send2 } from "iconsax-react";
 import { Loader2 } from "lucide-react";
+import { X } from "lucide-react";
 import { Mail } from "lucide-react";
 import { MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState("");
+  const [success, setSuccess] = useState(false);
+
+  const handleClose = () => {
+    setSuccess(false);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -29,7 +36,7 @@ const Footer = () => {
         console.log(response);
       }
       setEmail("");
-      toast.success("Thanks for subscribing! Stay tuned for updates. 🚀");
+      setSuccess(true);
     } catch (error) {
       console.log(error);
       toast.error("An error occured. Try again!");
@@ -37,6 +44,15 @@ const Footer = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (success) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [success]);
+
   return (
     <footer className="bg-black">
       <div id="subscribe" className="myContainer">
@@ -141,7 +157,13 @@ const Footer = () => {
             <ul className="grid gap-3 mt-5">
               {FooterLinks.map((nav, i) => (
                 <li key={i} className="text-white/90 hover:text-white">
-                  <Link href={nav.url}>{nav.title}</Link>
+                  {nav.external ? (
+                    <a href={nav.url} target="_blank" rel="noopener noreferrer">
+                      {nav.title}
+                    </a>
+                  ) : (
+                    <Link href={nav.url}>{nav.title}</Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -162,6 +184,35 @@ const Footer = () => {
           </p>
         </div>
       </div>
+      {success && (
+        <div
+          className="fixed top-0 h-dvh bottom-0 right-0 left-0 bg-black/20 z-[999999] animate-fadeIn"
+          onClick={handleClose}
+        >
+          <div
+            className="bg-[#FCF8ED] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 myFlex flex-col gap-7 max-md:w-[95%] max-w-[519px] p-3 mx-auto md:px-5 md:pt-10 md:pb-5 rounded-3xl animate-scaleUp"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={handleClose}
+              className="absolute top-4 right-4 p-2 rounded-full hover:bg-black/5 transition-colors duration-200"
+            >
+              <X size={24} />
+            </button>
+            <img
+              src="/images/highfive.png"
+              alt="high five"
+              className="w-[320px] md:w-[400px]"
+            />
+            <h1 className="!font-medium text-center">
+              You Are Now A Subscriber! <br /> Thank You!
+            </h1>
+            <p className="md:text-xl text-center max-md:w-[80%]">
+              You should recieve our first newsletter soon!
+            </p>
+          </div>
+        </div>
+      )}
     </footer>
   );
 };

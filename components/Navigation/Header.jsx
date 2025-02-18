@@ -7,7 +7,7 @@ import { useWindowScroll } from "react-use";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
-import { NavLinks } from "@/constants";
+import { NavLinks, scheduleMeeting } from "@/constants";
 import Button from "../Button";
 import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
@@ -102,7 +102,7 @@ const Header = () => {
       <Button
         cta="Schedule a meeting"
         className="bg-primary text-white max-lg:hidden"
-        link="/contact"
+        action={scheduleMeeting}
       />
       <button
         className="lg:hidden"

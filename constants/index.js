@@ -4,10 +4,27 @@ export const NavLinks = [
   { title: "Newsletters", url: "/newsletter" },
 ];
 
+export const scheduleMeeting = () => {
+  const message = encodeURIComponent(
+    "Hello, I'd like to schedule a meeting with your company."
+  );
+  const whatsappURL = `https://wa.me/${process.env.NEXT_PUBLIC_PHONE_NUMBER}?text=${message}`;
+
+  window.open(whatsappURL, "_blank");
+};
+
 export const FooterLinks = [
   { title: "Our Projects", url: "/projects" },
   { title: "Newsletters", url: "/newsletter" },
-  { title: "Schedule a meeting with us", url: "/contact" },
+  {
+    title: "Schedule a meeting with us",
+    url:
+      `https://wa.me/${process.env.NEXT_PUBLIC_PHONE_NUMBER}?text=` +
+      encodeURIComponent(
+        "Hello, I'd like to schedule a meeting with your company."
+      ),
+    external: true,
+  },
 ];
 
 export const Projects = [

@@ -4,6 +4,7 @@ import Button from "@/components/Button";
 import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { playFair } from "@/app/layout";
+import { scheduleMeeting } from "@/constants";
 
 const HeroNew = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -122,7 +123,7 @@ const HeroNew = () => {
           <Button
             cta="Schedule a Meeting"
             className="px-7 bg-white text-primary"
-            link="/contact"
+            action={scheduleMeeting}
           />
         </div>
       </div>
