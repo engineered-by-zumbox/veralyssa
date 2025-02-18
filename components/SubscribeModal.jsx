@@ -67,7 +67,7 @@ const SubscribeModal = () => {
 
   return (
     <main
-      className="fixed top-0 h-dvh bottom-0 right-0 left-0 bg-black/20 z-[999999] animate-fadeIn"
+      className="fixed top-0 h-dvh bottom-0 right-0 left-0 bg-black/70 z-[999999] animate-fadeIn"
       onClick={handleClose}
     >
       {success ? (
