@@ -2,7 +2,7 @@ import React from 'react'
 
 const AboutPage = () => {
   return (
-    <main>
+    <main className='min-h-dvh'>
       
     </main>
   )
