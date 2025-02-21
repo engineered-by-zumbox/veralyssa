@@ -1,14 +1,22 @@
 "use client";
+
 import { Send2 } from "iconsax-react";
 import { Loader2, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
+import Image from "next/image";
 
-const SubscribeModal = () => {
+const SubscribeModal = ({ initialData }) => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [success, setSuccess] = useState(false);
+
+  const checkSubscriptionStatus = () => {
+    const isSubscribed =
+      localStorage.getItem("newsletterSubscribed") === "true";
+    return isSubscribed;
+  };
 
   useEffect(() => {
     if (showModal) {
@@ -19,13 +27,14 @@ const SubscribeModal = () => {
   }, [showModal]);
 
   useEffect(() => {
-    // Check if 24 hours have passed since the last display
+    const isSubscribed = checkSubscriptionStatus();
+    if (isSubscribed) return;
+
     const lastShown = localStorage.getItem("newsletterLastShown");
     const shouldShow =
-      !lastShown || Date.now() - parseInt(lastShown) > 24 * 60 * 60 * 1000;
+      !lastShown || Date.now() - parseInt(lastShown) > 60 * 60 * 1000;
 
     if (shouldShow) {
-      // Add a slight delay before showing the modal
       const timer = setTimeout(() => {
         setShowModal(true);
         localStorage.setItem("newsletterLastShown", Date.now().toString());
@@ -51,9 +60,10 @@ const SubscribeModal = () => {
       }
       setEmail("");
       setSuccess(true);
+      localStorage.setItem("newsletterSubscribed", "true");
     } catch (error) {
-      console.log(error);
-      toast.error("An error occurred. Try again!");
+      console.error(error);
+      toast.error("An error occurred. Please try again!");
     } finally {
       setLoading(false);
     }
@@ -81,16 +91,21 @@ const SubscribeModal = () => {
           >
             <X size={24} />
           </button>
-          <img
-            src="/images/highfive.png"
-            alt="high five"
-            className="w-[320px] md:w-[400px]"
-          />
+          <div className="min-h-[334px]">
+            <Image
+              width={350}
+              height={450}
+              src="/images/highfive.png"
+              alt="high five"
+              className="w-[320px] md:w-[400px]"
+            />
+          </div>
+
           <h1 className="!font-medium text-center">
             You Are Now A Subscriber! <br /> Thank You!
           </h1>
           <p className="md:text-xl text-center max-md:w-[80%]">
-            You should recieve our first newsletter soon!
+            You should receive our first newsletter soon!
           </p>
         </div>
       ) : (
@@ -106,31 +121,29 @@ const SubscribeModal = () => {
           </button>
 
           <div className="bg-[#F5EAC866] p-2 md:p-3 rounded-2xl md:h-[400px] lg:h-[580px] md:w-[628px] shadow flex max-md:flex-col gap-4 animate-fadeIn">
-            <div className="basis-1/2 lg:basis-[60%]">
-              <img
-                src="/images/port1.jpeg"
-                alt="newsletter image"
-                className="rounded-2xl h-full w-full object-cover"
-              />
-            </div>
-            <div className="basis-1/2 lg:basis-[40%] flex flex-col justify-between">
-              <p className="text-[#333333] line-clamp-5 md:line-clamp-[10] lg:line-clamp-[16]">
-                Lorem ipsum dolor sit amet consectetur. Tellus nibh mattis
-                volutpat tincidunt faucibus mi interdum integer est. Arcu amet
-                ligula vulputate adipiscing ac quis. Tellus ornare lectus risus
-                tincidunt turpis id nunc proin. Euismod ornare ullamcorper eget
-                mi egestas venenatis vel eget.
-                <br />
-                Aliquam amet vitae phasellus nisl adipiscing. Egestas in nullam
-                eu id sed egestas ante ultricies. Metus et maecenas augue nibh
-                vel proin pretium integer.
-              </p>
-              <br />
-              <p className="font-semibold">
-                Interested in more contents like this? Sign up for our
-                newsletters today!
-              </p>
-            </div>
+            {initialData && (
+              <>
+                <div className="basis-1/2 lg:basis-[60%] max-md:min-h-[300px]">
+                  <Image
+                    src={initialData.imageUrl}
+                    width={500}
+                    height={800}
+                    alt="newsletter image"
+                    className="rounded-2xl h-full w-full object-cover"
+                  />
+                </div>
+                <div className="basis-1/2 lg:basis-[40%] flex flex-col justify-between">
+                  <p className="text-[#333333] line-clamp-5 md:line-clamp-[10] lg:line-clamp-[16]">
+                    {initialData.title}
+                  </p>
+                  <br />
+                  <p className="font-semibold">
+                    Interested in more content like this? Sign up for our
+                    newsletters today!
+                  </p>
+                </div>
+              </>
+            )}
           </div>
           <div className="lg:pl-3 pr-7">
             <form onSubmit={handleSubmit}>

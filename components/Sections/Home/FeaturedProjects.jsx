@@ -1,14 +1,14 @@
 "use client";
 import Button from "@/components/Button";
-import { Projects } from "@/constants";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
-const FeaturedProjects = () => {
+const FeaturedProjects = ({ projects }) => {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const textRef = useRef(null);
@@ -22,26 +22,28 @@ const FeaturedProjects = () => {
         start: "top 80%",
         end: "bottom 20%",
         // toggleActions: "play none none reverse"
-      }
+      },
     });
 
     // Animate heading and text
-    tl.fromTo(headingRef.current,
+    tl.fromTo(
+      headingRef.current,
       { y: 50, opacity: 0 },
       { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
-    )
-    .fromTo(textRef.current,
+    ).fromTo(
+      textRef.current,
       { y: 30, opacity: 0 },
       { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
       "-=0.6"
     );
 
     // Staggered animation for project cards
-    tl.fromTo(projectsRef.current,
-      { 
+    tl.fromTo(
+      projectsRef.current,
+      {
         y: 100,
         opacity: 0,
-        scale: 0.95
+        scale: 0.95,
       },
       {
         y: 0,
@@ -49,15 +51,15 @@ const FeaturedProjects = () => {
         scale: 1,
         duration: 0.8,
         stagger: 0.2,
-        ease: "power3.out"
+        ease: "power3.out",
       },
       "-=0.4"
     );
 
     // Hover animations for each project
     projectsRef.current.forEach((project) => {
-      const overlay = project.querySelector('.project-overlay');
-      const content = project.querySelector('.project-content');
+      const overlay = project.querySelector(".project-overlay");
+      const content = project.querySelector(".project-content");
 
       // Create hover animation timeline
       const hoverTl = gsap.timeline({ paused: true });
@@ -66,41 +68,44 @@ const FeaturedProjects = () => {
           opacity: 1,
           scale: 1,
           duration: 0.3,
-          ease: "power2.out"
+          ease: "power2.out",
         })
-        .fromTo(content.children,
+        .fromTo(
+          content.children,
           { y: 20, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.3, stagger: 0.05 },
           "-=0.2"
         );
 
       // Add hover event listeners
-      project.addEventListener('mouseenter', () => hoverTl.play());
-      project.addEventListener('mouseleave', () => hoverTl.reverse());
+      project.addEventListener("mouseenter", () => hoverTl.play());
+      project.addEventListener("mouseleave", () => hoverTl.reverse());
     });
 
     // Cleanup
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
   return (
     <section ref={sectionRef} className="myContainer md:!py-24">
-      <h1 ref={headingRef} className="text-center">Featured Projects</h1>
+      <h1 ref={headingRef} className="text-center">
+        Featured Projects
+      </h1>
       <p ref={textRef} className="text-center text-myGray mt-2">
         Discover our portfolio of luxury construction projects, where attention
         to detail meets <br className="max-md:hidden" /> uncompromising quality.
       </p>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 md:mt-16">
-        {Projects.map((pr, i) => (
+        {projects.map((pr, i) => (
           <div
             key={i}
-            ref={el => projectsRef.current[i] = el}
+            ref={(el) => (projectsRef.current[i] = el)}
             className="relative cursor-pointer h-[469px] rounded-2xl overflow-hidden"
           >
-            <img
-              src={pr.imageUrl}
+            <Image
+              src={pr.images[0].url}
               width={500}
               height={500}
               className="object-cover h-full w-full"
@@ -124,7 +129,7 @@ const FeaturedProjects = () => {
                   <Button
                     cta="View project"
                     className="bg-primary-100 transition-all duration-300 text-white w-full myFlex text-center"
-                    link={pr.link}
+                    link={`/projects/${pr._id}`}
                   />
                 </div>
               </div>

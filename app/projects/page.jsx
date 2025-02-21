@@ -1,6 +1,12 @@
 import Header from "@/components/Sections/Portfolio/Header";
 import PortFolioLists from "@/components/Sections/Portfolio/PortFolio";
 
+export const metadata = {
+  title: "Our Projects | Veralyssa Interior Design & Architecture",
+  description:
+    "Explore Veralyssa's portfolio of luxurious interior design and architectural projects. From modern homes to commercial spaces, discover our signature blend of functionality and aesthetics.",
+};
+
 const PortfolioPage = async () => {
   try {
     const res = await fetch(

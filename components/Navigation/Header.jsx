@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
-import { useWindowScroll } from "react-use";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
@@ -16,7 +15,6 @@ import { AlignRight } from "lucide-react";
 const Header = () => {
   const navContainerRef = useRef(null);
   const pathName = usePathname();
-  const { y: currentScrollY } = useWindowScroll();
   const [isNavVisible, setIsNavVisible] = useState(true);
   const [menuVisible, setMenuVisible] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
