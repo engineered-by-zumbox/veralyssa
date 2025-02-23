@@ -72,12 +72,10 @@ const Header = () => {
       )}
     >
       <Link href="/" className="relative z-[1000]">
-        <Image
+        <img
           src="/images/vera-logo.png"
-          width={200}
-          height={40}
           alt="veralyssa logo"
-          className="max-lg:-ml-6"
+          className="w-[200px] max-md:-ml-6 h-[70px] object-cover"
         />
       </Link>
       <nav className="max-lg:hidden">

@@ -117,12 +117,12 @@ const HeroNew = () => {
         >
           <Button
             cta="View Our Projects"
-            className="bg-primary px-7 text-white"
+            className="bg-primary px-7 font-semibold text-white"
             link="/projects"
           />
           <Button
             cta="Schedule a Meeting"
-            className="px-7 bg-white text-primary"
+            className="px-7 bg-white font-semibold text-primary"
             action={scheduleMeeting}
           />
         </div>

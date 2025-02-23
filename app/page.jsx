@@ -1,3 +1,4 @@
+import PageLoader from "@/components/PageLoader";
 import FAQs from "@/components/Sections/Home/FAQs";
 import FeaturedProjects from "@/components/Sections/Home/FeaturedProjects";
 import HeroNew from "@/components/Sections/Home/HeroNew";
@@ -69,6 +70,7 @@ const HomePage = async () => {
       <Schedule />
       <FAQs faqs={HomeFAQs} />
       {newsletterData && <SubscribeModal initialData={newsletterData} />}
+      <PageLoader />
     </main>
   );
 };
