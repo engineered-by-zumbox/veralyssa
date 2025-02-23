@@ -1,11 +1,12 @@
 import Link from "next/link";
+import AnimatedTitle from "./AnimatedTtitle";
 
 const SectionHeader = ({ title, desc, id }) => {
   return (
     <div className="">
       <div>
         <div className="flex items-end justify-between gap-10">
-          <h1 className={`md:max-w-[80%] ${id && "line-clamp-2"}`}>{title}</h1>
+          <AnimatedTitle title={title} tag="h1" className={`md:max-w-[80%] ${id && "line-clamp-2"}`} />
           {id && (
             <Link
               href={`/projects/${id}`}
