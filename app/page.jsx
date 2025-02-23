@@ -3,7 +3,6 @@ import FAQs from "@/components/Sections/Home/FAQs";
 import FeaturedProjects from "@/components/Sections/Home/FeaturedProjects";
 import HeroNew from "@/components/Sections/Home/HeroNew";
 import Schedule from "@/components/Sections/Home/Schedule";
-import SubscribeModal from "@/components/SubscribeModal";
 import { HomeFAQs } from "@/constants";
 import { shuffleArray } from "@/lib/helper";
 
@@ -16,23 +15,6 @@ export const metadata = {
     follow: true,
   },
 };
-
-async function getNewsletterContent() {
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/newsletter-campaigns/active`,
-      {
-        next: { revalidate: 300 },
-      }
-    );
-
-    if (!res.ok) throw new Error("Failed to fetch newsletter content");
-    return res.json();
-  } catch (error) {
-    console.error("Error fetching newsletter content:", error);
-    return null;
-  }
-}
 
 async function getFeaturedProjects() {
   try {
@@ -52,15 +34,7 @@ async function getFeaturedProjects() {
 }
 
 const HomePage = async () => {
-  const [newsletterResult, projectsResult] = await Promise.allSettled([
-    getNewsletterContent(),
-    getFeaturedProjects(),
-  ]);
-
-  const newsletterData =
-    newsletterResult.status === "fulfilled" ? newsletterResult.value : null;
-  const projectsData =
-    projectsResult.status === "fulfilled" ? projectsResult.value : null;
+  const projectsData = await getFeaturedProjects();
 
   const shuffledProjects = projectsData ? shuffleArray(projectsData) : null;
   const featuredProjects = shuffledProjects
@@ -74,7 +48,6 @@ const HomePage = async () => {
       {featuredProjects && <FeaturedProjects projects={featuredProjects} />}
       <Schedule />
       <FAQs faqs={HomeFAQs} />
-      {newsletterData && <SubscribeModal initialData={newsletterData} />}
     </main>
   );
 };

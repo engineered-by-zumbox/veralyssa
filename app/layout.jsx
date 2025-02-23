@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import Header from "@/components/Navigation/Header";
 import Footer from "@/components/Navigation/Footer";
 import { Toaster } from "react-hot-toast";
+import SubscribeModal from "@/components/SubscribeModal";
 
 export const metadata = {
   title: "Veralyssa Limited | Construction, Remodeling, Interior Design & More",
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
         <Footer />
         <Toaster />
         <TawkToMessenger />
+        <SubscribeModal />
       </body>
     </html>
   );

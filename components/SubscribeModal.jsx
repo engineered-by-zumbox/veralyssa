@@ -6,28 +6,37 @@ import { useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import Image from "next/image";
 
-const SubscribeModal = ({ initialData }) => {
+const SubscribeModal = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [initialData, setInitialData] = useState(null);
 
-  const checkSubscriptionStatus = () => {
+  //  Fetch Newsletter Content with Proper async/await
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/newsletter-campaigns/active`
+        );
+
+        if (!res.ok) throw new Error("Failed to fetch newsletter content");
+
+        const data = await res.json();
+        setInitialData(data);
+      } catch (error) {
+        console.error("Error fetching newsletter content:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  //  Handle Modal Display Logic
+  useEffect(() => {
     const isSubscribed =
       localStorage.getItem("newsletterSubscribed") === "true";
-    return isSubscribed;
-  };
-
-  useEffect(() => {
-    if (showModal) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [showModal]);
-
-  useEffect(() => {
-    const isSubscribed = checkSubscriptionStatus();
     if (isSubscribed) return;
 
     const lastShown = localStorage.getItem("newsletterLastShown");
@@ -44,6 +53,13 @@ const SubscribeModal = ({ initialData }) => {
     }
   }, []);
 
+  // Prevent Background Scrolling
+  useEffect(() => {
+    document.body.style.overflow = showModal ? "hidden" : "auto";
+    return () => (document.body.style.overflow = "auto");
+  }, [showModal]);
+
+  // Handle Form Submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -52,12 +68,15 @@ const SubscribeModal = ({ initialData }) => {
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/newsletter/subscribe`,
         {
           method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify({ email }),
         }
       );
-      if (!response.ok) {
-        throw new Error("Subscription failed");
-      }
+
+      if (!response.ok) throw new Error("Subscription failed");
+
       setEmail("");
       setSuccess(true);
       localStorage.setItem("newsletterSubscribed", "true");
@@ -69,10 +88,12 @@ const SubscribeModal = ({ initialData }) => {
     }
   };
 
+  //  Handle Modal Close
   const handleClose = () => {
     setShowModal(false);
   };
 
+  //  Conditional Rendering
   if (!showModal) return null;
 
   return (
