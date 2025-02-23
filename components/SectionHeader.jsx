@@ -6,7 +6,11 @@ const SectionHeader = ({ title, desc, id }) => {
     <div className="">
       <div>
         <div className="flex items-end justify-between gap-10">
-          <AnimatedTitle title={title} tag="h1" className={`md:max-w-[80%] ${id && "line-clamp-2"}`} />
+          <AnimatedTitle
+            title={title}
+            tag="h1"
+            className={`md:max-w-[80%] ${id && "line-clamp-2"}`}
+          />
           {id && (
             <Link
               href={`/projects/${id}`}
