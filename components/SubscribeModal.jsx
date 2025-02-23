@@ -38,7 +38,7 @@ const SubscribeModal = ({ initialData }) => {
       const timer = setTimeout(() => {
         setShowModal(true);
         localStorage.setItem("newsletterLastShown", Date.now().toString());
-      }, 2000);
+      }, 20000);
 
       return () => clearTimeout(timer);
     }
@@ -115,7 +115,7 @@ const SubscribeModal = ({ initialData }) => {
         >
           <button
             onClick={handleClose}
-            className="absolute top-4 max-md:hidden right-4 p-2 rounded-full hover:bg-black/5 transition-colors duration-200"
+            className="absolute top-4 max-md:-top-16 max-md:bg-white right-2 md:right-4 p-2 rounded-full hover:bg-black/5 transition-colors duration-200"
           >
             <X size={24} />
           </button>
