@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.veralyssa.com
+
+# Sitemaps
+Sitemap: https://www.veralyssa.com/sitemap.xml
