@@ -26,7 +26,7 @@ const HeroNew = () => {
   const wordPause = 2000;
 
   useEffect(() => {
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" }, delay: 4 });
 
     tl.fromTo(".overlay", { opacity: 0 }, { opacity: 1, duration: 1 }, "-=1");
 

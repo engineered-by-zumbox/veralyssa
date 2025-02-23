@@ -10,37 +10,28 @@ const PageLoader = () => {
 
   const [loading, setLoading] = useState(true);
 
+  // Prevent body scroll while loading
   useEffect(() => {
-    if (loading) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    document.body.style.overflow = loading ? "hidden" : "auto";
+    return () => {
+      document.body.style.overflow = "auto"; // Cleanup in case of unmount
+    };
   }, [loading]);
 
   useEffect(() => {
     const tl = gsap.timeline({
-      onComplete: () => {
-        setLoading(false);
-      },
+      onComplete: () => setLoading(false),
     });
 
     // Initial state
-    gsap.set(logoRef.current, {
-      opacity: 0,
-      scale: 0.8,
-      rotation: 360,
-      filter: "blur(20px)",
-    });
+    gsap.set(logoRef.current, { opacity: 0, scale: 0.8 });
 
     // Animation sequence
     tl.to(logoRef.current, {
       opacity: 1,
-      rotation: 0,
       scale: 1,
-      filter: "blur(0px)",
-      duration: 1.5,
-      ease: "elastic.out(1, 0.5)", // Bounce effect
+      duration: 1,
+      ease: "elastic.out(1, 0.5)",
     })
       .to(logoRef.current, {
         opacity: 0,
@@ -54,7 +45,14 @@ const PageLoader = () => {
         duration: 1,
         ease: "power4.inOut",
       });
+
+    return () => {
+      tl.kill(); // Cleanup animation
+    };
   }, []);
+
+  // 🚦 Conditional rendering to remove the loader from the DOM
+  if (!loading) return null;
 
   return (
     <div

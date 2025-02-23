@@ -65,12 +65,12 @@ const HomePage = async () => {
 
   return (
     <main>
+      <PageLoader />
       <HeroNew />
       {featuredProjects && <FeaturedProjects projects={featuredProjects} />}
       <Schedule />
       <FAQs faqs={HomeFAQs} />
       {newsletterData && <SubscribeModal initialData={newsletterData} />}
-      <PageLoader />
     </main>
   );
 };
