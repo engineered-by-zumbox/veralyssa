@@ -1,19 +1,23 @@
 import TawkToMessenger from "@/components/TawkToMessenger";
 import "./globals.css";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter } from "next/font/google";
 import Header from "@/components/Navigation/Header";
 import Footer from "@/components/Navigation/Footer";
 import { Toaster } from "react-hot-toast";
 
+export const metadata = {
+  title: "Veralyssa Limited | Construction, Remodeling, Interior Design & More",
+  description:
+    "Veralyssa Limited offers top-tier services in construction, remodeling, interior design, project management, and consulting. We deliver excellence from concept to completion.",
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "700"],
-  display: "swap",
-});
-
-export const playFair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 

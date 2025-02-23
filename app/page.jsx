@@ -8,9 +8,13 @@ import { HomeFAQs } from "@/constants";
 import { shuffleArray } from "@/lib/helper";
 
 export const metadata = {
-  title: "Veralyssa | Innovative Interior Design & Architecture",
+  title: "Veralyssa Limited | Construction, Remodeling, Interior Design & More",
   description:
-    "Transform your space with Veralyssa's expert interior design and architectural solutions. We create stunning, functional spaces that reflect your vision and lifestyle.",
+    "Veralyssa Limited offers top-tier services in construction, remodeling, interior design, project management, and consulting. We deliver excellence from concept to completion.",
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 async function getNewsletterContent() {

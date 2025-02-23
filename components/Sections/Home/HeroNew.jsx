@@ -3,8 +3,14 @@
 import Button from "@/components/Button";
 import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
-import { playFair } from "@/app/layout";
 import { scheduleMeeting } from "@/constants";
+import { Playfair_Display } from "next/font/google";
+
+const playFair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
 
 const HeroNew = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);

@@ -3,6 +3,16 @@ import OurCoreValue from "@/components/Sections/About/OurCoreValue";
 import OurServices from "@/components/Sections/About/OurServices";
 import Project from "@/components/Sections/About/Project";
 
+export const metadata = {
+  title: "About Veralyssa Limited | Our Story & Expertise",
+  description:
+    "Learn more about Veralyssa Limited, our journey, expertise in construction and design, and our commitment to delivering high-quality projects with integrity and professionalism.",
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 async function getFeaturedProjects() {
   try {
     const res = await fetch(
