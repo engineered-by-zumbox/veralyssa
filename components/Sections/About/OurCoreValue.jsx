@@ -1,3 +1,4 @@
+import AnimatedTitle from "@/components/AnimatedTtitle";
 import React from "react";
 
 const CoreValue = [
@@ -91,7 +92,7 @@ const Divider = () => (
 
 const CoreSection = ({ title, coreInfo, type = 1 }) => (
   <div className="my-10 md:my-16">
-    <h1 className="text-[#B1B1B1]">{title}</h1>
+    <AnimatedTitle title={title} tag="h1" className="text-[#B1B1B1]" />
     <div
       className={`mt-7 md:mt-16 grid gap-7 ${
         type === 1 ? "md:grid-cols-2" : "md:grid-cols-3"

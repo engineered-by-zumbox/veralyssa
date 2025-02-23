@@ -1,3 +1,4 @@
+import AnimatedTitle from "@/components/AnimatedTtitle";
 import Image from "next/image";
 
 const EquipContainer = ({ type = 1, bgColor, text, textColor, imageUrl }) => (
@@ -30,7 +31,11 @@ const Equipments = () => {
   return (
     <section className="myContainer grid gap-6 lg:gap-10 lg:grid-cols-2">
       <div className="flex flex-col justify-end gap-10 lg:gap-3">
-        <h1 className="text-[#B1B1B1]">SOME OF OUR EQUIPMENTS</h1>
+        <AnimatedTitle
+          title="SOME OF OUR EQUIPMENTS"
+          tag="h1"
+          className="text-[#B1B1B1]"
+        />
         <div className="grid md:grid-cols-2 gap-6">
           <EquipContainer
             text="EXCAVATORS"

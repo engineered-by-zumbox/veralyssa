@@ -1,6 +1,7 @@
 import React from "react";
 import { AccordionDemo } from "../Home/FAQs";
 import Image from "next/image";
+import AnimatedTitle from "@/components/AnimatedTtitle";
 
 const ServicesFAQs = [
   {
@@ -38,7 +39,10 @@ const OurServices = () => {
       </div>
       <div className="flex max-lg:flex-col gap-10">
         <div className="basis-[55%]">
-          <AccordionDemo faqs={ServicesFAQs} className="max-w-[100%] md:max-w-[80%]" />
+          <AccordionDemo
+            faqs={ServicesFAQs}
+            className="max-w-[100%] md:max-w-[80%]"
+          />
         </div>
         <div className="basis-[45%] grid h-fit gap-3 md:gap-4">
           <div className="grid grid-cols-[52%_45%] gap-3 md:gap-5">
@@ -76,9 +80,11 @@ const OurServices = () => {
         </div>
       </div>
       <div className="flex lg:items-center justify-between max-lg:flex-col gap-5 mt-16 lg:mt-32">
-        <h1 className="!max-md:text-5xl md:!text-[64px] md:leading-[77.45px]">
-          OUR VISION <br /> STATEMENT{" "}
-        </h1>
+        <AnimatedTitle
+          title="OUR VISION STATEMENT"
+          tag="h1"
+          className="!max-md:text-5xl md:!text-[64px] md:leading-[77.45px]"
+        />
         <div className="max-w-[612px] lg:text-end">
           <p className="font-bold">OUR VISION</p>
           <p>
