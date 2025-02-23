@@ -1,14 +1,16 @@
 "use client";
+
 import Button from "@/components/Button";
+import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
-const FeaturedProjects = ({ projects }) => {
+const Project = ({ projects }) => {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const textRef = useRef(null);
@@ -87,16 +89,17 @@ const FeaturedProjects = ({ projects }) => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
-
   return (
-    <section ref={sectionRef} className="myContainer md:!py-24">
-      <h1 ref={headingRef} className="text-center">
-        Featured Projects
+    <section ref={sectionRef} className="myContainer max-md:!pt-0">
+      <h1
+        ref={headingRef}
+        className="!max-md:text-5xl md:!text-[64px] lg:leading-[77.45px] mb-2"
+      >
+        We have worked on so many amazing projects.
       </h1>
-      <p ref={textRef} className="text-center text-myGray mt-2">
-        Discover our portfolio of luxury construction projects, where attention
-        to detail meets <br className="max-md:hidden" /> uncompromising quality.
-      </p>
+      <Link href="/projects" className="text-xl underline">
+        See all
+      </Link>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 md:mt-16">
         {projects.map((pr, i) => (
           <div
@@ -143,4 +146,4 @@ const FeaturedProjects = ({ projects }) => {
   );
 };
 
-export default FeaturedProjects;
+export default Project;

@@ -15,7 +15,7 @@ export const scheduleMeeting = () => {
 
 export const FooterLinks = [
   { title: "Our Projects", url: "/projects" },
-  { title: "Newsletters", url: "/newsletter" },
+  { title: "About Us", url: "/about" },
   {
     title: "Schedule a meeting with us",
     url:

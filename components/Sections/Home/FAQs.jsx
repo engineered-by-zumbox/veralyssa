@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { cn } from "@/lib/utils";
 
 const FAQs = ({ faqs }) => {
   return (
@@ -20,7 +21,7 @@ const FAQs = ({ faqs }) => {
   );
 };
 
-export function AccordionDemo({ faqs }) {
+export function AccordionDemo({ faqs, className }) {
   return (
     <Accordion type="single" collapsible className="w-full">
       {faqs?.map((faq, i) => (
@@ -32,7 +33,9 @@ export function AccordionDemo({ faqs }) {
           <AccordionTrigger className="text-base py-7 opacity-95 md:text-lg font-semibold">
             {faq.question}
           </AccordionTrigger>
-          <AccordionContent className="max-w-[80%] md:max-w-[60%] text-base">
+          <AccordionContent
+            className={cn("max-w-[80%] md:max-w-[60%] text-base", className)}
+          >
             {faq.answer}
           </AccordionContent>
         </AccordionItem>
