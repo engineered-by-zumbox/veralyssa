@@ -3,7 +3,6 @@ import FAQs from "@/components/Sections/Home/FAQs";
 import FeaturedProjects from "@/components/Sections/Home/FeaturedProjects";
 import HeroNew from "@/components/Sections/Home/HeroNew";
 import Schedule from "@/components/Sections/Home/Schedule";
-import { HomeFAQs } from "@/constants";
 import { shuffleArray } from "@/lib/helper";
 
 export const metadata = {
@@ -47,7 +46,7 @@ const HomePage = async () => {
       <HeroNew />
       {featuredProjects && <FeaturedProjects projects={featuredProjects} />}
       <Schedule />
-      <FAQs faqs={HomeFAQs} />
+      <FAQs />
     </main>
   );
 };

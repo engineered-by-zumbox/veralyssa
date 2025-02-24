@@ -89,7 +89,7 @@ const Schedule = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-[#F3F3F3]">
+    <section ref={sectionRef} id="contact" className="bg-[#F3F3F3]">
       <div className="myContainer">
         <h1 ref={headingRef} className="text-center">
           Schedule a Meeting <br className="md:hidden" /> With Us

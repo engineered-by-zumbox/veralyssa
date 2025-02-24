@@ -117,7 +117,7 @@ const Footer = () => {
             <p className="font-bold text-white">Contact</p>
             <div className="space-y-4 mt-5">
               <a
-                href="https://maps.app.goo.gl/zej4pSKN6tLqz9qC7"
+                href="https://maps.app.goo.gl/2DQ7LhU8BmtL2dbN6?g_st=aw"
                 target="_blank"
                 className="flex gap-2 w-fit"
               >

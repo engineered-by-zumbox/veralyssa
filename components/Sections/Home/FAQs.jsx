@@ -4,18 +4,26 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { faqCategories } from "@/constants";
 import { cn } from "@/lib/utils";
 
-const FAQs = ({ faqs }) => {
+const FAQs = () => {
   return (
     <section className="myContainer" id="faqs">
-      <h1 className="text-center">FAQs</h1>
+      <h1 className="text-center">Frequently Asked Questions</h1>
       <p className="opacity-95 text-center mt-3 text-myGray md:text-lg w-[90%] md:w-[50%] mx-auto">
-        Find answers to your questions and learn more about our desktop frame
-        offerings.
+        Find answers to common questions about Veralyssa's premium construction
+        and interior finishing services.
       </p>
-      <div className="mt-10 md:mt-20">
-        <AccordionDemo faqs={faqs} />
+      <div className="mt-10 md:mt-20 space-y-12">
+        {faqCategories.map((category, index) => (
+          <div key={index}>
+            <h2 className="text-xl opacity-50 md:text-2xl font-semibold mb-6">
+              {category.category}
+            </h2>
+            <AccordionDemo faqs={category.faqs} />
+          </div>
+        ))}
       </div>
     </section>
   );
@@ -34,7 +42,10 @@ export function AccordionDemo({ faqs, className }) {
             {faq.question}
           </AccordionTrigger>
           <AccordionContent
-            className={cn("max-w-[80%] md:max-w-[60%] text-base", className)}
+            className={cn(
+              "max-w-[80%] accd md:max-w-[60%] text-base",
+              className
+            )}
           >
             {faq.answer}
           </AccordionContent>
