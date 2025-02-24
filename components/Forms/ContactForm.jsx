@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Button } from "../ui/button";
+import toast from "react-hot-toast";
+import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -10,21 +12,50 @@ const ContactForm = () => {
     message: "",
   });
 
+  const [isLoading, setIsLaoding] = useState(false);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLaoding(true);
 
-    const message = `Hello, I am ${formData.fname} ${formData.lname}.
+    try {
+      // Send Email using EmailJS
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        formData,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      );
+
+      toast.success("Message sent successfully!");
+      // Clear form after submission
+      setFormData({
+        fname: "",
+        lname: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      toast.error("Failed to send the message. Try WhatsApp instead!");
+
+      // Optional: Fallback to WhatsApp
+      const message = `Hello, I am ${formData.fname} ${formData.lname}.
 Email: ${formData.email}
 Phone: ${formData.phone}
 Message: ${formData.message}`;
 
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/${process.env.NEXT_PUBLIC_PHONE_NUMBER}?text=${encodedMessage}`;
-    window.open(whatsappURL, "_blank");
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappURL = `https://wa.me/${process.env.NEXT_PUBLIC_PHONE_NUMBER}?text=${encodedMessage}`;
+      window.open(whatsappURL, "_blank");
+    } finally {
+      setIsLaoding(false);
+    }
   };
 
   return (
@@ -80,9 +111,10 @@ Message: ${formData.message}`;
           />
           <Button
             type="submit"
+            disabled={isLoading}
             className="bg-primary text-white w-full myFlex text-center"
           >
-            Send message
+            {isLoading ? "Sending..." : "Send message"}
           </Button>
         </div>
       </form>

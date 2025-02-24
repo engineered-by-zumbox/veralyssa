@@ -131,7 +131,7 @@ const SubscribeModal = () => {
         </div>
       ) : (
         <div
-          className="bg-[#FCF8ED] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex max-lg:flex-col lg:items-end gap-7 max-md:w-[95%] max-w-[1167px] p-3 mx-auto md:px-5 md:pt-10 md:pb-5 rounded-3xl animate-scaleUp"
+          className="bg-[#FCF8ED] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex max-lg:flex-col lg:items-end gap-3 max-md:gap-7 max-md:w-[95%] max-w-[800px] p-3 mx-auto md:px-5 md:pt-10 md:pb-5 rounded-3xl animate-scaleUp"
           onClick={(e) => e.stopPropagation()}
         >
           <button
@@ -141,7 +141,7 @@ const SubscribeModal = () => {
             <X size={24} />
           </button>
 
-          <div className="bg-[#F5EAC866] p-2 md:p-3 rounded-2xl md:h-[400px] lg:h-[580px] md:w-[628px] shadow flex max-md:flex-col gap-4 animate-fadeIn">
+          <div className="bg-[#F5EAC866] p-2 md:p-3 rounded-2xl md:h-[300px] lg:h-[350px] md:w-[628px] shadow flex max-md:flex-col gap-4 animate-fadeIn">
             {initialData && (
               <>
                 <div className="basis-1/2 lg:basis-[60%] max-md:min-h-[300px]">
@@ -158,7 +158,7 @@ const SubscribeModal = () => {
                     {initialData.title}
                   </p>
                   <br />
-                  <p className="font-semibold">
+                  <p className="font-semibold text-sm">
                     Interested in more content like this? Sign up for our
                     newsletters today!
                   </p>
@@ -166,12 +166,12 @@ const SubscribeModal = () => {
               </>
             )}
           </div>
-          <div className="lg:pl-3 pr-7">
+          <div className="lg:pl-3 max-md:pr-7">
             <form onSubmit={handleSubmit}>
               <h1 className="!font-medium">
                 Sign up for our <br /> Newsletter{" "}
               </h1>
-              <div className="w-[300px] border border-[#745B00] mt-4 h-[50px] pl-3 pr-1 myFlex gap-3 justify-between rounded-[14px] bg-white hover:border-black transition-colors duration-200">
+              <div className="w-[300px] lg:w-[250px] border border-[#745B00] mt-4 h-[50px] pl-3 pr-1 myFlex gap-3 justify-between rounded-[14px] bg-white hover:border-black transition-colors duration-200">
                 <input
                   type="email"
                   id="email"
