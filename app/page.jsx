@@ -8,7 +8,7 @@ import { shuffleArray } from "@/lib/helper";
 export const metadata = {
   title: "Veralyssa Limited | Construction, Remodeling, Interior Design & More",
   description:
-    "Veralyssa Limited offers top-tier services in construction, remodeling, interior design, project management, and consulting. We deliver excellence from concept to completion.",
+    "Veralyssa is Nigeria’s premier construction and luxury finishing company, specializing in high-end interiors, landscaping, facility management, and government beautification projects. Contact us today!",
   robots: {
     index: true,
     follow: true,
