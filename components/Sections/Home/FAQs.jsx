@@ -43,7 +43,7 @@ export function AccordionDemo({ faqs, className }) {
           </AccordionTrigger>
           <AccordionContent
             className={cn(
-              "max-w-[80%] accd md:max-w-[60%] text-base",
+              "accd md:max-w-[60%] text-base",
               className
             )}
           >
