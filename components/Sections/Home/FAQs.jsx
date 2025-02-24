@@ -1,3 +1,4 @@
+import AnimatedTitle from "@/components/AnimatedTtitle";
 import {
   Accordion,
   AccordionContent,
@@ -18,9 +19,11 @@ const FAQs = () => {
       <div className="mt-10 md:mt-20 space-y-12">
         {faqCategories.map((category, index) => (
           <div key={index}>
-            <h2 className="text-xl opacity-50 md:text-2xl font-semibold mb-6">
-              {category.category}
-            </h2>
+            <AnimatedTitle
+              tag="h2"
+              title={category.category}
+              className="text-xl opacity-50 md:text-2xl font-semibold mb-6"
+            />
             <AccordionDemo faqs={category.faqs} />
           </div>
         ))}
@@ -42,10 +45,7 @@ export function AccordionDemo({ faqs, className }) {
             {faq.question}
           </AccordionTrigger>
           <AccordionContent
-            className={cn(
-              "accd md:max-w-[60%] text-base",
-              className
-            )}
+            className={cn("accd md:max-w-[60%] text-base", className)}
           >
             {faq.answer}
           </AccordionContent>
