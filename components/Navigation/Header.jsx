@@ -1,12 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
-import { NavLinks, scheduleMeeting } from "@/constants";
+import { NavLinks } from "@/constants";
 import Button from "../Button";
 import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
@@ -98,7 +97,7 @@ const Header = () => {
       <Button
         cta="Schedule a meeting"
         className="bg-primary text-white max-lg:hidden"
-        action={scheduleMeeting}
+        link="#contact"
       />
       <button
         className="lg:hidden"

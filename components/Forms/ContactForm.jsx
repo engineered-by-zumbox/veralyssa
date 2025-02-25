@@ -43,16 +43,6 @@ const ContactForm = () => {
     } catch (error) {
       console.error("EmailJS Error:", error);
       toast.error("Failed to send the message. Try WhatsApp instead!");
-
-      // Optional: Fallback to WhatsApp
-      const message = `Hello, I am ${formData.fname} ${formData.lname}.
-Email: ${formData.email}
-Phone: ${formData.phone}
-Message: ${formData.message}`;
-
-      const encodedMessage = encodeURIComponent(message);
-      const whatsappURL = `https://wa.me/${process.env.NEXT_PUBLIC_PHONE_NUMBER}?text=${encodedMessage}`;
-      window.open(whatsappURL, "_blank");
     } finally {
       setIsLaoding(false);
     }

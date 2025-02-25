@@ -3,7 +3,6 @@
 import Button from "@/components/Button";
 import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
-import { scheduleMeeting } from "@/constants";
 import { Playfair_Display } from "next/font/google";
 
 const playFair = Playfair_Display({
@@ -129,7 +128,7 @@ const HeroNew = () => {
           <Button
             cta="Schedule a Meeting"
             className="px-7 bg-white font-semibold text-primary"
-            action={scheduleMeeting}
+            link="#contact"
           />
         </div>
       </div>

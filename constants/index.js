@@ -4,27 +4,27 @@ export const NavLinks = [
   { title: "Our projects", url: "/projects" },
 ];
 
-export const scheduleMeeting = () => {
-  const message = encodeURIComponent(
-    "Hello, I'd like to schedule a meeting with your company."
-  );
-  const whatsappURL = `https://wa.me/${process.env.NEXT_PUBLIC_PHONE_NUMBER}?text=${message}`;
+// export const scheduleMeeting = () => {
+//   const message = encodeURIComponent(
+//     "Hello, I'd like to schedule a meeting with your company."
+//   );
+//   const whatsappURL = `https://wa.me/${process.env.NEXT_PUBLIC_PHONE_NUMBER}?text=${message}`;
 
-  window.open(whatsappURL, "_blank");
-};
+//   window.open(whatsappURL, "_blank");
+// };
 
 export const FooterLinks = [
   { title: "About Us", url: "/about" },
   { title: "Our Projects", url: "/projects" },
-  {
-    title: "Schedule a meeting with us",
-    url:
-      `https://wa.me/${process.env.NEXT_PUBLIC_PHONE_NUMBER}?text=` +
-      encodeURIComponent(
-        "Hello, I'd like to schedule a meeting with your company."
-      ),
-    external: true,
-  },
+  // {
+  //   title: "Schedule a meeting with us",
+  //   url:
+  //     `https://wa.me/${process.env.NEXT_PUBLIC_PHONE_NUMBER}?text=` +
+  //     encodeURIComponent(
+  //       "Hello, I'd like to schedule a meeting with your company."
+  //     ),
+  //   external: true,
+  // },
 ];
 
 export const faqCategories = [
