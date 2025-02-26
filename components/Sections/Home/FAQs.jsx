@@ -28,7 +28,7 @@ const FAQs = () => {
               value={`category-${index}`}
               className={`border-[#E3E3E3] ${index === 0 ? "border-t" : ""}`}
             >
-              <AccordionTrigger className="text-xl py-6 font-semibold">
+              <AccordionTrigger className="text-xl py-6 opacity-95 font-semibold">
                 {category.category}
               </AccordionTrigger>
               <AccordionContent>
@@ -55,7 +55,7 @@ export function CategoryAccordion({ faqs, className }) {
           value={`item-${i + 1}`}
           className="border-[#E3E3E3] border-opacity-70 last:border-0"
         >
-          <AccordionTrigger className="text-base py-5 opacity-95 md:text-lg font-medium">
+          <AccordionTrigger className="text-base py-5 md:text-lg font-semibold opacity-95">
             {faq.question}
           </AccordionTrigger>
           <AccordionContent
