@@ -12,21 +12,36 @@ const SubscribeModal = () => {
   const [showModal, setShowModal] = useState(false);
   const [success, setSuccess] = useState(false);
   const [initialData, setInitialData] = useState(null);
+  const [dataLoading, setDataLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   //  Fetch Newsletter Content with Proper async/await
   useEffect(() => {
     const fetchData = async () => {
+      setDataLoading(true);
       try {
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_BASE_URL}/api/newsletter-campaigns/active`
         );
 
-        if (!res.ok) throw new Error("Failed to fetch newsletter content");
+        if (!res.ok) {
+          throw new Error("Failed to fetch newsletter content");
+        }
 
         const data = await res.json();
+        
+        // Check if we received valid data
+        if (!data || !data.imageUrl || !data.title) {
+          throw new Error("Invalid newsletter data");
+        }
+        
         setInitialData(data);
+        setError(false);
       } catch (error) {
         console.error("Error fetching newsletter content:", error);
+        setError(true);
+      } finally {
+        setDataLoading(false);
       }
     };
 
@@ -35,6 +50,9 @@ const SubscribeModal = () => {
 
   //  Handle Modal Display Logic
   useEffect(() => {
+    // Don't show modal if there's no data or an error
+    if (dataLoading || error || !initialData) return;
+    
     const isSubscribed =
       localStorage.getItem("newsletterSubscribed") === "true";
     if (isSubscribed) return;
@@ -51,7 +69,7 @@ const SubscribeModal = () => {
 
       return () => clearTimeout(timer);
     }
-  }, []);
+  }, [initialData, dataLoading, error]);
 
   // Prevent Background Scrolling
   useEffect(() => {
@@ -94,7 +112,7 @@ const SubscribeModal = () => {
   };
 
   //  Conditional Rendering
-  if (!showModal) return null;
+  if (!showModal || !initialData) return null;
 
   return (
     <main
