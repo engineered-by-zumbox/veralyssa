@@ -29,12 +29,12 @@ const SubscribeModal = () => {
         }
 
         const data = await res.json();
-        
+
         // Check if we received valid data
         if (!data || !data.imageUrl || !data.title) {
           throw new Error("Invalid newsletter data");
         }
-        
+
         setInitialData(data);
         setError(false);
       } catch (error) {
@@ -52,7 +52,7 @@ const SubscribeModal = () => {
   useEffect(() => {
     // Don't show modal if there's no data or an error
     if (dataLoading || error || !initialData) return;
-    
+
     const isSubscribed =
       localStorage.getItem("newsletterSubscribed") === "true";
     if (isSubscribed) return;
@@ -159,10 +159,10 @@ const SubscribeModal = () => {
             <X size={24} />
           </button>
 
-          <div className="bg-[#F5EAC866] p-2 md:p-3 rounded-2xl md:h-[300px] lg:h-[350px] md:w-[628px] shadow flex max-md:flex-col gap-4 animate-fadeIn">
+          <div className="bg-[#F5EAC866] p-2 md:p-3 rounded-2xl md:w-[628px] shadow flex max-md:flex-col gap-4 animate-fadeIn">
             {initialData && (
               <>
-                <div className="basis-1/2 lg:basis-[60%] max-md:min-h-[300px]">
+                <div className="basis-[40%] lg:basis-[60%] max-md:min-h-[220px]">
                   <Image
                     src={initialData.imageUrl}
                     width={500}
@@ -171,9 +171,12 @@ const SubscribeModal = () => {
                     className="rounded-2xl h-full w-full object-cover"
                   />
                 </div>
-                <div className="basis-1/2 lg:basis-[40%] flex flex-col justify-between">
-                  <p className="text-[#333333] line-clamp-5 md:line-clamp-[10] lg:line-clamp-[16]">
+                <div className="basis-1/2 h-full lg:basis-[40%] flex flex-col gap-2 justify-between">
+                  <h2 className="text-xl font-semibold line-clamp-2 md:line-clamp-3">
                     {initialData.title}
+                  </h2>
+                  <p className="text-[#333333] line-clamp-5 md:line-clamp-[8]">
+                    {initialData.message}
                   </p>
                   <br />
                   <p className="font-semibold text-sm">
