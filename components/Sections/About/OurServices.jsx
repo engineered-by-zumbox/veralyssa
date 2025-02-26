@@ -1,7 +1,36 @@
 import React from "react";
-import { AccordionDemo } from "../Home/FAQs";
 import Image from "next/image";
 import AnimatedTitle from "@/components/AnimatedTtitle";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { cn } from "@/lib/utils";
+
+function AccordionDemo({ faqs, className }) {
+  return (
+    <Accordion type="single" collapsible className="w-full">
+      {faqs?.map((faq, i) => (
+        <AccordionItem
+          key={i}
+          value={`item-${i + 1}`}
+          className="first:border-t border-[#E3E3E3]"
+        >
+          <AccordionTrigger className="text-base py-7 opacity-95 md:text-lg font-semibold">
+            {faq.question}
+          </AccordionTrigger>
+          <AccordionContent
+            className={cn("accd md:max-w-[60%] text-base", className)}
+          >
+            {faq.answer}
+          </AccordionContent>
+        </AccordionItem>
+      ))}
+    </Accordion>
+  );
+}
 
 const ServicesFAQs = [
   {
