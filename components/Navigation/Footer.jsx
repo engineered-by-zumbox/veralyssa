@@ -142,12 +142,12 @@ const Footer = () => {
               </p>
             </a>
             <a
-              href="tel:+012933866"
+              href="tel:+2340201293866"
               target="_blank"
               className="flex gap-2 w-fit"
             >
               <Call size="24" color="#ffffff" variant="Bold" />
-              <p className="text-white/90 hover:text-white">+01 293 3866</p>
+              <p className="text-white/90 hover:text-white">+234 (02) 012 938 66</p>
             </a>
           </div>
         </div>
