@@ -14,7 +14,15 @@ const Button = ({ cta, link, external = false, action, icon, className }) => {
         <>
           {external ? (
             <a href={link} target="_blank" rel="noopener noreferrer">
-              {cta}
+              <span className="relative inline-flex overflow-hidden">
+                <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:translate-y-[-177%] group-hover:skew-y-12">
+                  {cta}
+                </div>
+                <div className="absolute translate-y-[174%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
+                  {cta}
+                </div>
+              </span>{" "}
+              {icon && <span className="ml-2">{icon}</span>}
             </a>
           ) : (
             <Link href={link} className="myFlex w-fit mx-auto">

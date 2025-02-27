@@ -96,6 +96,7 @@ const Header = () => {
       </nav>
       <Button
         cta="Schedule a meeting"
+        external={true}
         className="bg-primary text-white max-lg:hidden"
         link="https://cal.com/veralyssa/15min"
       />

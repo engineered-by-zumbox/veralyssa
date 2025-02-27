@@ -129,6 +129,7 @@ const HeroNew = () => {
             cta="Schedule a Meeting"
             className="px-7 bg-white font-semibold text-primary"
             link="https://cal.com/veralyssa/15min"
+            external={true}
           />
         </div>
       </div>
