@@ -7,7 +7,6 @@ import { Loader2 } from "lucide-react";
 import { X } from "lucide-react";
 import { Mail } from "lucide-react";
 import { MapPin } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -147,7 +146,9 @@ const Footer = () => {
               className="flex gap-2 w-fit"
             >
               <Call size="24" color="#ffffff" variant="Bold" />
-              <p className="text-white/90 hover:text-white">+234 (02) 012 938 66</p>
+              <p className="text-white/90 hover:text-white">
+                +234 (02) 012 938 66
+              </p>
             </a>
           </div>
         </div>
