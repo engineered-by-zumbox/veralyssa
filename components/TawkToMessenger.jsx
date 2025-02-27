@@ -15,6 +15,11 @@ const TawkToMessenger = () => {
       s1.setAttribute("crossorigin", "*");
       s0.parentNode.insertBefore(s1, s0);
     })();
+
+    // Hide the widget when it loads
+    Tawk_API.onLoad = function () {
+      Tawk_API.hideWidget();
+    };
   }, []);
 
   return null;
