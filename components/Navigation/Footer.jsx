@@ -54,8 +54,8 @@ const Footer = () => {
   }, [success]);
 
   return (
-    <footer className="bg-black">
-      <div id="subscribe" className="myContainer">
+    <footer className="bg-black relative pb-20">
+      <div id="subscribe" className="myContainer !pb-0">
         <div className="flex lg:items-end max-lg:flex-col gap-7 justify-between pb-12 border-b-[0.3px] border-b-myGray-200">
           <div>
             <h4 className="text-lg md:text-2xl text-white">
@@ -111,78 +111,67 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="lg:myFlex relative">
-        <div className="max-lg:pb-16 lg:basis-1/2 pl-[3%] lg:pl-[5%] grid md:grid-cols-2 gap-16">
-          <div>
-            <p className="font-bold text-white">Contact</p>
-            <div className="space-y-4 mt-5">
-              <a
-                href="https://maps.app.goo.gl/2DQ7LhU8BmtL2dbN6?g_st=aw"
-                target="_blank"
-                className="flex gap-2 w-fit"
-              >
-                <MapPin size="30" color="#000000" className="fill-white" />
-                <p className="text-white/90 hover:text-white">
-                  Plot 16B Omorinre Johnson Street,
-                  <br /> Lekki Phase 1, Lagos, Nigeria
-                  <br />
-                  <br />
-                  <span className="text-primary underline text-sm">
-                    Get directions
-                  </span>
-                </p>
-              </a>
-              <a
-                href="mailto:enquiries@veralyssa.com"
-                target="_blank"
-                className="flex gap-2 w-fit"
-              >
-                <Mail size="24" color="#000000" className="fill-white" />
-                <p className="text-white/90 hover:text-white">
-                  enquiries@veralyssa.com
-                </p>
-              </a>
-              <a
-                href="tel:+012933866"
-                target="_blank"
-                className="flex gap-2 w-fit"
-              >
-                <Call size="24" color="#ffffff" variant="Bold" />
-                <p className="text-white/90 hover:text-white">+01 293 3866</p>
-              </a>
-            </div>
-          </div>
-          <div className="text-white">
-            <p className="font-bold">Quick links</p>
-            <ul className="grid gap-3 mt-5">
-              {FooterLinks.map((nav, i) => (
-                <li key={i} className="text-white/90 hover:text-white">
-                  {nav.external ? (
-                    <a href={nav.url} target="_blank" rel="noopener noreferrer">
-                      {nav.title}
-                    </a>
-                  ) : (
-                    <Link href={nav.url}>{nav.title}</Link>
-                  )}
-                </li>
-              ))}
-            </ul>
+      <div className="relative myContainer flex max-md:flex-col gap-16 md:gap-20">
+        <div>
+          <p className="font-bold text-white">Contact</p>
+          <div className="space-y-4 mt-5">
+            <a
+              href="https://maps.app.goo.gl/2DQ7LhU8BmtL2dbN6?g_st=aw"
+              target="_blank"
+              className="flex gap-2 w-fit"
+            >
+              <MapPin size="30" color="#000000" className="fill-white" />
+              <p className="text-white/90 hover:text-white">
+                Plot 16B Omorinre Johnson Street,
+                <br /> Lekki Phase 1, Lagos, Nigeria
+                <br />
+                <br />
+                <span className="text-primary underline text-sm">
+                  Get directions
+                </span>
+              </p>
+            </a>
+            <a
+              href="mailto:enquiries@veralyssa.com"
+              target="_blank"
+              className="flex gap-2 w-fit"
+            >
+              <Mail size="24" color="#000000" className="fill-white" />
+              <p className="text-white/90 hover:text-white">
+                enquiries@veralyssa.com
+              </p>
+            </a>
+            <a
+              href="tel:+012933866"
+              target="_blank"
+              className="flex gap-2 w-fit"
+            >
+              <Call size="24" color="#ffffff" variant="Bold" />
+              <p className="text-white/90 hover:text-white">+01 293 3866</p>
+            </a>
           </div>
         </div>
-        <div className="lg:basis-1/2 relative h-[416px] rounded-tl-[370px] md:rounded-tl-full overflow-hidden">
-          <Image
-            src="/images/footer.webp"
-            alt="footer image"
-            width={710}
-            height={416}
-            className="absolute inset-0 w-full h-full"
-          />
+        <div className="text-white">
+          <p className="font-bold">Quick links</p>
+          <ul className="grid gap-3 mt-5">
+            {FooterLinks.map((nav, i) => (
+              <li key={i} className="text-white/90 hover:text-white">
+                {nav.external ? (
+                  <a href={nav.url} target="_blank" rel="noopener noreferrer">
+                    {nav.title}
+                  </a>
+                ) : (
+                  <Link href={nav.url}>{nav.title}</Link>
+                )}
+              </li>
+            ))}
+          </ul>
         </div>
-        <div className="absolute bg-black h-[48px] myFlex justify-center bottom-0 right-0 left-0">
-          <p className="text-xs text-myGray-300 text-center">
-            &copy; 2025 Veralyssa. All rights reserved
-          </p>
-        </div>
+      </div>
+      <div className="absolute myFlex justify-center bottom-10 right-0 left-0">
+        <p className="text-xs text-myGray-300 text-center">
+          &copy; 2025 Veralyssa. All rights reserved
+        </p>
       </div>
       {success && (
         <div
