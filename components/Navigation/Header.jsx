@@ -97,7 +97,7 @@ const Header = () => {
       <Button
         cta="Schedule a meeting"
         className="bg-primary text-white max-lg:hidden"
-        link="#contact"
+        link="https://cal.com/veralyssa/15min"
       />
       <button
         className="lg:hidden"

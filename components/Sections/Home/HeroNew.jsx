@@ -128,7 +128,7 @@ const HeroNew = () => {
           <Button
             cta="Schedule a Meeting"
             className="px-7 bg-white font-semibold text-primary"
-            link="#contact"
+            link="https://cal.com/veralyssa/15min"
           />
         </div>
       </div>

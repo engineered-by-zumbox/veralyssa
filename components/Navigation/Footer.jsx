@@ -54,7 +54,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-black relative pb-20">
-      <div id="subscribe" className="myContainer !pb-0">
+      <div id="subscribe" className="myContainer !pb-0 lg:hidden">
         <div className="flex lg:items-end max-lg:flex-col gap-7 justify-between pb-12 border-b-[0.3px] border-b-myGray-200">
           <div>
             <h4 className="text-lg md:text-2xl text-white">
@@ -110,7 +110,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="relative myContainer flex max-md:flex-col gap-16 md:gap-20">
+      <div className="relative myContainer flex max-md:flex-col lg:items-center lg:justify-between gap-16 md:gap-20">
         <div>
           <p className="font-bold text-white">Contact</p>
           <div className="space-y-4 mt-5">
@@ -152,7 +152,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <div className="text-white">
+        <div className="text-white min-h-[220px]">
           <p className="font-bold">Quick links</p>
           <ul className="grid gap-3 mt-5">
             {FooterLinks.map((nav, i) => (
@@ -167,6 +167,60 @@ const Footer = () => {
               </li>
             ))}
           </ul>
+        </div>
+        <div className="flex flex-col-reverse gap-10 items-end max-lg:hidden">
+          <div>
+            <h4 className="text-lg text-end md:text-2xl text-white">
+              SUBSCRIBE TO OUR <br />{" "}
+              <span className="font-semibold !text-4xl lg:!text-5xl !text-primary-300">
+                NEWSLETTER
+              </span>
+            </h4>
+            <p className="max-w-[505px] text-end text-myGray mt-4">
+              Subscribe to our newsletter to stay updated on the latest trends
+              in luxury design and exclusive tips for creating your dream space.
+              Join our community and let's build something extraordinary
+              together!
+            </p>
+          </div>
+          <div>
+            <form onSubmit={handleSubmit}>
+              <label
+                htmlFor="email"
+                className="text-sm max-lg:hidden text-white"
+              >
+                Sign up for our{" "}
+                <span className="font-semibold">Newsletter</span>{" "}
+              </label>
+              <div className="w-[300px] lg:mt-2 h-[50px] pl-3 pr-1 myFlex gap-3 justify-between rounded-[14px] bg-white">
+                <input
+                  type="email"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  placeholder="Enter your email address"
+                  className="w-full focus:outline-none placeholder:max-md:text-sm placeholder:text-black placeholder:font-medium"
+                />
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="bg-black p-2 rounded-xl myFlex justify-between"
+                >
+                  {loading ? (
+                    <Loader2
+                      size="24"
+                      className="animate-spin"
+                      color="#ffffff"
+                    />
+                  ) : (
+                    <Send2 size="24" color="#ffffff" variant="Bold" />
+                  )}
+                </button>
+              </div>
+              {/* {error && <p style={{ color: "red", fontSize: "14px" }}>{error}</p>} */}
+            </form>
+          </div>
         </div>
       </div>
       <div className="absolute myFlex justify-center bottom-10 right-0 left-0">
