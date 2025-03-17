@@ -38,7 +38,7 @@ const PortfolioCard = ({ port, type = "1" }) => {
             />
             <div className="absolute bg-black/20 inset-0 z-50 px-4 pb-6 flex items-end">
               <div>
-                <h2 className="text-[32px] mb-7 font-semibold leading-[38.73px] text-white">
+                <h2 className="text-[32px] mb-7 font-semibold leading-[38.73px] max-w-[90%] text-white">
                   {project.caption}
                 </h2>
               </div>

@@ -86,7 +86,7 @@ const HeroNew = () => {
   }, [displayText, isDeleting, currentWordIndex]);
 
   return (
-    <div className="relative h-dvh w-full overflow-hidden">
+    <div className="relative h-[100vh] w-full overflow-hidden">
       <img
         src="/images/hero.jpeg"
         alt="hero imgae"

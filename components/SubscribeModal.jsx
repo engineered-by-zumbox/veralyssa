@@ -175,7 +175,7 @@ const SubscribeModal = () => {
                   <h2 className="text-xl font-semibold line-clamp-2 md:line-clamp-3">
                     {initialData.title}
                   </h2>
-                  <p className="text-[#333333] line-clamp-4 md:line-clamp-[8]">
+                  <p className="text-[#333333] line-clamp-3 md:line-clamp-[8]">
                     {initialData.message}
                   </p>
                   <p className="font-semibold text-sm">

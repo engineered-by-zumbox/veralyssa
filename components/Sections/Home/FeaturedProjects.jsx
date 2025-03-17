@@ -112,7 +112,7 @@ const FeaturedProjects = ({ projects }) => {
               alt={pr.name}
             />
             <div className="project-overlay absolute rounded-2xl transition-all flex items-end duration-300 inset-0 opacity-0 w-full h-full bg-black/30">
-              <div className="project-content text-white p-6 space-y-3">
+              <div className="project-content text-white p-6 space-y-3 w-full">
                 <div className="no-select">
                   <p className="opacity-70 mb-1 font-light">Project Name</p>
                   <p className="text-2xl font-semibold line-clamp-2">
