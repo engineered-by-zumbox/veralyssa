@@ -119,14 +119,19 @@ const FeaturedProjects = ({ projects }) => {
                     {pr.name}
                   </p>
                 </div>
-                <div className="no-select">
-                  <p className="opacity-70 mb-1 font-light">Category</p>
-                  <p className="text-xl font-medium">{pr.category}</p>
-                </div>
-                <div className="no-select">
-                  <p className="opacity-70 mb-1 font-light">Description</p>
-                  <p className="line-clamp-3">{pr.description}</p>
-                </div>
+                {pr.category && (
+                  <div className="no-select">
+                    <p className="opacity-70 mb-1 font-light">Category</p>
+                    <p className="text-xl font-medium">{pr.category}</p>
+                  </div>
+                )}
+                {pr.description && (
+                  <div className="no-select">
+                    <p className="opacity-70 mb-1 font-light">Description</p>
+                    <p className="line-clamp-3">{pr.description}</p>
+                  </div>
+                )}
+
                 <div className="pt-3">
                   <Button
                     cta="View project"
