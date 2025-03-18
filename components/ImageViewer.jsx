@@ -38,7 +38,7 @@ const Gallery = ({ images, initialIndex = 0, type }) => {
       {/* Gallery Grid - Customize as needed */}
       <div
         className={cn(
-          "mt-10",
+          "mt-10 min-h-[540px]",
           type === "1" && "myFlex no-scrollbar overflow-y-scroll gap-4",
           type === "2" && "grid md:grid-cols-2 gap-4"
         )}
