@@ -37,7 +37,7 @@ const HomePage = async () => {
 
   const shuffledProjects = projectsData ? shuffleArray(projectsData) : null;
   const featuredProjects = shuffledProjects
-    ? shuffledProjects.slice(0, 3)
+    ? shuffledProjects.slice(0, 9)
     : null;
 
   return (

@@ -56,6 +56,9 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.17)
+      yet-another-react-lightbox:
+        specifier: ^3.21.8
+        version: 3.21.8(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
     devDependencies:
       '@eslint/eslintrc':
         specifier: ^3
@@ -1986,6 +1989,20 @@ packages:
     resolution: {integrity: sha512-+hSoy/QHluxmC9kCIJyL/uyFmLmc+e5CFR5Wa+bpIhIj85LVb9ZH2nVnqrHoSvKogwODv0ClqZkmiSSaIH5LTA==}
     engines: {node: '>= 14'}
     hasBin: true
+
+  yet-another-react-lightbox@3.21.8:
+    resolution: {integrity: sha512-8DnjpSmWF+WjGXX+NIJx0V/naUhUYxLt6RIBJZoQ4y1GJVKwiUO2RuRvUBvYQTwAwFqwhJSvxfIhCU3VyCj9WQ==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      '@types/react': ^16 || ^17 || ^18 || ^19
+      '@types/react-dom': ^16 || ^17 || ^18 || ^19
+      react: ^16.8.0 || ^17 || ^18 || ^19
+      react-dom: ^16.8.0 || ^17 || ^18 || ^19
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
 
   yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
@@ -4130,5 +4147,10 @@ snapshots:
       strip-ansi: 7.1.0
 
   yaml@2.7.0: {}
+
+  yet-another-react-lightbox@3.21.8(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+    dependencies:
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
 
   yocto-queue@0.1.0: {}

@@ -1,11 +1,17 @@
 const VideoPlayer = () => {
   return (
-    <iframe
-      src="https://drive.google.com/file/d/13_tfwueL-T-l9kil3s3ysn7VAfD9l3-F/preview"
-      width="100%"
-      height="500"
-      allow="autoplay"
-    ></iframe>
+    <div className="w-full h-[300px] md:h-[80vh] lg:h-screen">
+      <iframe
+        width="100%"
+        height="100%"
+        src="https://www.youtube.com/embed/CXjAqfLV92A?si=v2_vjTeBVytTN0hr"
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+      ></iframe>
+    </div>
   );
 };
 
