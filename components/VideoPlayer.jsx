@@ -1,6 +1,6 @@
 const VideoPlayer = () => {
   return (
-    <div className="w-full h-[400px] md:h-[80vh] lg:h-screen">
+    <div className="w-full h-full aspect-video">
       <iframe
         width="100%"
         height="100%"
