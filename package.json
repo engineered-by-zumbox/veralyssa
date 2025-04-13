@@ -25,8 +25,7 @@
     "react-hot-toast": "^2.5.2",
     "react-use": "^17.6.0",
     "tailwind-merge": "^3.0.1",
-    "tailwindcss-animate": "^1.0.7",
-    "yet-another-react-lightbox": "^3.21.8"
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
